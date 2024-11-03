@@ -38,7 +38,10 @@ namespace ProjectManager.SDK.Interfaces
         /// using the parameter `lastId` of the oldest notification from each batch to fetch the next 500 notifications.
         /// </summary>
         /// <param name="lastId">To continue loading more notifications in a series of requests, provide the ID of the oldest notification from the currently loaded batch as the `lastId` parameter</param>
-        Task<AstroResult<NotificationResponseDto>> RetrieveNotifications(Guid? lastId = null);
+        /// <param name="senderId">Filter the notifications to only those sent by the user with the specified ID</param>
+        /// <param name="notificationTypes">Specifies the types of notifications to return. If not provided, all notifications will be returned.</param>
+        /// <param name="asFlatList">If set to true all notifications will be returned as a flat list, otherwise they will be grouped by parent in the same manner as displayed in the UI.</param>
+        Task<AstroResult<NotificationResponseDto>> RetrieveNotifications(Guid? lastId = null, Guid? senderId = null, string[] notificationTypes = null, bool? asFlatList = null);
 
         /// <summary>
         /// Retrieve the total count of pending notifications for the current user.
@@ -74,7 +77,7 @@ namespace ProjectManager.SDK.Interfaces
         /// workspace. Notifications are ephemeral and may be deleted when they are no longer needed.  When a user has more
         /// than 1,000 pending notifications some old notifications will be deleted automatically.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the notification to mark read</param>
         Task<AstroResult<NotificationTimestampDto>> MarkNotificationRead(Guid id);
 
         /// <summary>
@@ -93,7 +96,7 @@ namespace ProjectManager.SDK.Interfaces
         /// workspace. Notifications are ephemeral and may be deleted when they are no longer needed.  When a user has more
         /// than 1,000 pending notifications some old notifications will be deleted automatically.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the notification to mark read</param>
         Task<AstroResult<string>> DeleteNotification(Guid id);
 
         /// <summary>
@@ -103,7 +106,7 @@ namespace ProjectManager.SDK.Interfaces
         /// workspace. Notifications are ephemeral and may be deleted when they are no longer needed.  When a user has more
         /// than 1,000 pending notifications some old notifications will be deleted automatically.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the notification to mark read</param>
         Task<AstroResult<string>> MarkNotificationUnread(Guid id);
     }
 }
