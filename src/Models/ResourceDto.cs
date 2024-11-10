@@ -36,6 +36,11 @@ namespace ProjectManager.SDK.Models
         public Guid? Id { get; set; }
 
         /// <summary>
+        /// The resource initials.
+        /// </summary>
+        public string Initials { get; set; }
+
+        /// <summary>
         /// The first name of the person Resource.
         ///
         /// Applies to personnel Resources only.
@@ -84,6 +89,11 @@ namespace ProjectManager.SDK.Models
         /// is not constrained to the list of known ISO 3166 country names or codes.
         /// </summary>
         public string Country { get; set; }
+
+        /// <summary>
+        /// Returns the name of the country
+        /// </summary>
+        public string CountryName { get; set; }
 
         /// <summary>
         /// Free-form text notes about this Resource.  You may use this field to store extra
@@ -161,5 +171,10 @@ namespace ProjectManager.SDK.Models
         /// Read only Hex code of the ColorName
         /// </summary>
         public string Color { get; set; }
+
+        /// <summary>
+        /// The resources avatar url, if any.
+        /// </summary>
+        public string AvatarUrl { get; set; }
     }
 }
