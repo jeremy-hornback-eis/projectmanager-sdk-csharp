@@ -21,25 +21,19 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// The DiscussionCommentFile represents a file that has been attached to a discussion
-    /// and is available for download.
+    /// The properties for creating a TaskTodo.
     /// </summary>
-    public class DiscussionCommentFileDto : ApiModel
+    public class TaskTodoCreateDto : ApiModel
     {
 
         /// <summary>
-        /// The identifier for this file
+        /// The full description of this TaskTodo.
         /// </summary>
-        public Guid? Id { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
-        /// The name of the file
+        /// True if this TaskTodo is complete.
         /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// The url of the DownloadFile API to retrieve this file
-        /// </summary>
-        public string Url { get; set; }
+        public bool? Complete { get; set; }
     }
 }

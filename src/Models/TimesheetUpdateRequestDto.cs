@@ -27,9 +27,14 @@ namespace ProjectManager.SDK.Models
     {
 
         /// <summary>
-        /// Reported hours
+        /// Reported hours. If minutes is specified this property is ignored
         /// </summary>
         public decimal? Hours { get; set; }
+
+        /// <summary>
+        /// Specify the time in minutes. This overrides the Hours property.
+        /// </summary>
+        public int? Minutes { get; set; }
 
         /// <summary>
         /// Notes
