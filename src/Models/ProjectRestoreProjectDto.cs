@@ -21,14 +21,15 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// This is a skill that can be allocated to a resource.
+    /// This is the projectId being restored to
     /// </summary>
-    public class UpdateResourceSkillDto : ApiModel
+    public class ProjectRestoreProjectDto : ApiModel
     {
 
         /// <summary>
-        /// The name of this Skill, if specified it will be updated
+        /// The unique identifier of the Project.  This value is set by the system and cannot
+        /// be set with a CreateProject or changed with an UpdateProject call.
         /// </summary>
-        public string Name { get; set; }
+        public Guid? Id { get; set; }
     }
 }

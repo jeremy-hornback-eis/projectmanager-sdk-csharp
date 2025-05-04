@@ -13,22 +13,23 @@
 
 
 
-#pragma warning disable CS8618
-
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using ProjectManager.SDK.Models;
 
-namespace ProjectManager.SDK.Models
+
+namespace ProjectManager.SDK.Interfaces
 {
-
     /// <summary>
-    /// This is a skill that can be allocated to a resource.
+    /// API methods related to NptStatus
     /// </summary>
-    public class UpdateResourceSkillDto : ApiModel
+    public interface INptStatusClient
     {
 
         /// <summary>
-        /// The name of this Skill, if specified it will be updated
+        /// Get a list of task statuses that can be used by npt tasks.
         /// </summary>
-        public string Name { get; set; }
+        Task<AstroResult<NptStatusDto[]>> GetNptTaskStatuses();
     }
 }
