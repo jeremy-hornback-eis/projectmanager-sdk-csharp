@@ -21,14 +21,14 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// This is a skill that can be allocated to a resource.
+    /// DTO to assign roles to a list of project members
     /// </summary>
-    public class UpdateResourceSkillDto : ApiModel
+    public class ProjectMembersAccessDto : ApiModel
     {
 
         /// <summary>
-        /// The name of this Skill, if specified it will be updated
+        /// List of project members and their roles
         /// </summary>
-        public string Name { get; set; }
+        public ProjectAccessEntryDto[] ProjectAccess { get; set; }
     }
 }
