@@ -21,27 +21,24 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// A ResourceSkill is a capability possessed by this Resource that can be used to
-    /// determine appropriate assignments.  Some Resources may have ResourceSkills that
-    /// are in high demand and some Tasks may have a requirement for Resources with particular
-    /// ResourceSkills.
+    /// Represents the access permissions assigned to a single user within a project.
     /// </summary>
-    public class ResourceSkillDto : ApiModel
+    public class ProjectAccessEntryDto : ApiModel
     {
 
         /// <summary>
-        /// The unique identifier of this ResourceSkill
+        /// The unique identifier of the user to whom the access permissions apply.
         /// </summary>
-        public Guid? Id { get; set; }
+        public Guid? UserId { get; set; }
 
         /// <summary>
-        /// The name of this ResourceSkill
+        /// Indicates whether the user has permission to edit the project.
         /// </summary>
-        public string Name { get; set; }
+        public bool? CanEdit { get; set; }
 
         /// <summary>
-        /// Set to true if this ResourceSkill is in use
+        /// Indicates whether the user has permission to manage the project (e.g., assign roles, change settings).
         /// </summary>
-        public bool? InUse { get; set; }
+        public bool? CanManage { get; set; }
     }
 }
