@@ -21,14 +21,19 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// This is a skill that can be allocated to a resource.
+    /// Represents a timesheet approval request
     /// </summary>
-    public class UpdateResourceSkillDto : ApiModel
+    public class TimeSheetApprovalDto : ApiModel
     {
 
         /// <summary>
-        /// The name of this Skill, if specified it will be updated
+        /// The resource whose timesheet is being approved
         /// </summary>
-        public string Name { get; set; }
+        public Guid? ResourceId { get; set; }
+
+        /// <summary>
+        /// The date of the week to which the timesheet applies
+        /// </summary>
+        public DateTime? Date { get; set; }
     }
 }
