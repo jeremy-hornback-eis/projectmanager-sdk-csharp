@@ -75,5 +75,15 @@ namespace ProjectManager.SDK.Models
         /// Total Minutes
         /// </summary>
         public int? Minutes { get; set; }
+
+        /// <summary>
+        /// Is the timesheet entry copied from another week?
+        /// </summary>
+        public bool? IsCopied { get; set; }
+
+        /// <summary>
+        /// Is the last timesheet modified by the user
+        /// </summary>
+        public string LastUpdatedDate { get; set; }
     }
 }

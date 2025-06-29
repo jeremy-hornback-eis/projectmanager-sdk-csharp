@@ -21,14 +21,24 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// This is a skill that can be allocated to a resource.
+    /// Information about a pending timesheet approval
     /// </summary>
-    public class UpdateResourceSkillDto : ApiModel
+    public class PendingTimeSheetApprovalDto : ApiModel
     {
 
         /// <summary>
-        /// The name of this Skill, if specified it will be updated
+        /// The resource whose timesheet is being approved
         /// </summary>
-        public string Name { get; set; }
+        public Guid? ResourceId { get; set; }
+
+        /// <summary>
+        /// The date of the week to which the timesheet applies
+        /// </summary>
+        public DateTime? Date { get; set; }
+
+        /// <summary>
+        /// The name of the resource
+        /// </summary>
+        public string ResourceName { get; set; }
     }
 }
