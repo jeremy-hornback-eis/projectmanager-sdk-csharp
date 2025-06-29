@@ -21,27 +21,32 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// A ResourceSkill is a capability possessed by this Resource that can be used to
-    /// determine appropriate assignments.  Some Resources may have ResourceSkills that
-    /// are in high demand and some Tasks may have a requirement for Resources with particular
-    /// ResourceSkills.
+    /// A TaskStatus is a named status level used by your business to determine how to measure the
+    /// progress of Tasks.  You can define your own named status levels that are appropriate for
+    /// your business and determine which status levels are considered done.
     /// </summary>
-    public class ResourceSkillDto : ApiModel
+    public class NptStatusDto : ApiModel
     {
 
         /// <summary>
-        /// The unique identifier of this ResourceSkill
+        /// The unique identifier of this TaskStatus.
         /// </summary>
         public Guid? Id { get; set; }
 
         /// <summary>
-        /// The name of this ResourceSkill
+        /// The name of this TaskStatus.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Set to true if this ResourceSkill is in use
+        /// A numerical value that can be used to sort TaskStatus values according to the
+        /// needs of your business.
         /// </summary>
-        public bool? InUse { get; set; }
+        public int? Order { get; set; }
+
+        /// <summary>
+        /// True if a Task in this TaskStatus is considered done.
+        /// </summary>
+        public bool? IsDone { get; set; }
     }
 }

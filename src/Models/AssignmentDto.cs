@@ -21,14 +21,24 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// This is a skill that can be allocated to a resource.
+    /// User assigned to task or risk
     /// </summary>
-    public class UpdateResourceSkillDto : ApiModel
+    public class AssignmentDto : ApiModel
     {
 
         /// <summary>
-        /// The name of this Skill, if specified it will be updated
+        /// Task or risk the user is assigned to
         /// </summary>
-        public string Name { get; set; }
+        public Guid? TaskId { get; set; }
+
+        /// <summary>
+        /// The task or risk project Id
+        /// </summary>
+        public Guid? ProjectId { get; set; }
+
+        /// <summary>
+        /// Resource identifier
+        /// </summary>
+        public Guid? ResourceId { get; set; }
     }
 }
