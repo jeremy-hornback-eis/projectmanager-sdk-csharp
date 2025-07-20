@@ -6,20 +6,63 @@
         <Nullable>disable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageReadmeFile>docs/README.md</PackageReadmeFile>
-        <Description>Software development kit for the ProjectManager.com API for DotNet</Description>
+        <Description>Software development kit for the ProjectManager.com API. for DotNet</Description>
         <PackageTags>projectmanager project management task tracking projects tasks</PackageTags>
-        <Copyright>Copyright 2021 - 2025</Copyright>
+        <Copyright>Copyright 2023 - 2025</Copyright>
         <PackageReleaseNotes>
-            # Patch notes for 127.0.185
+# Patch notes for 136.1.131
 
-            These patch notes summarize the changes from version 125.1.169.
+These patch notes summarize the changes from version 127.0.185.
 
-            Deprecated 1 old APIs:
-            * WorkSpace.InviteToWorkspace
+Added 12 new APIs:
+* Me.UpdateMyAvatar (POST /api/data/me/avatar)
+* Npt.GetNpt (GET /api/data/non-project-tasks/{nptId})
+* Npt.UpdateNpt (PUT /api/data/non-project-tasks/{nptId})
+* Npt.RemoveNpt (DELETE /api/data/non-project-tasks/{nptId})
+* Npt.CreateNpt (POST /api/data/non-project-tasks)
+* NptStatus.GetNptTaskStatuses (GET /api/data/non-project-tasks/statuses)
+* ProjectMembers.UpdateAListOfUserProjectMembership (PUT /api/data/projects/{projectId}/members)
+* Risk.GetRiskList (GET /api/data/risks)
+* RiskFile.UploadRiskFile (POST /api/data/risks/{riskId}/files)
+* Timesheet.SubmitResourceTimeSheetForApproval (POST /api/data/timesheets/approvals)
+* Timesheet.ApproveResourceTimeSheetApprovalRequest (POST /api/data/timesheets/approvals/approve)
+* Timesheet.RejectResourceTimeSheetApprovalRequest (POST /api/data/timesheets/approvals/reject)
+
+Renamed 4 old APIs:
+* Renamed 'TaskTodo.GetTodosForATask' to 'TaskTodo.GetTodos'
+* Renamed 'TaskTodo.CreateATodoForATask' to 'TaskTodo.CreateTodo'
+* Renamed 'TaskTodo.UpdateATodo' to 'TaskTodo.UpdateTodo'
+* Renamed 'TaskTodo.DeleteATodo' to 'TaskTodo.DeleteTodo'
+
+Changes to data models:
+* ProjectCreateDto: Added new field `shortId`
+* ProjectCreateDto: Added new field `shortName`
+* ProjectCreateDto: Added new field `updatePlannedWithActual`
+* ProjectCreateDto: Added new field `workingDays`
+* ProjectCreateDto: Removed field `template`
+* ProjectDto: Added new field `updatePlannedWithActual`
+* ProjectUpdateDto: Added new field `shortName`
+* ProjectUpdateDto: Added new field `template`
+* ProjectUpdateDto: Added new field `updatePlannedWithActual`
+* ProjectUpdateDto: Added new field `notes`
+* ResourceSkillDto: Added new field `inUse`
+* TaskDto: Added new field `actualDuration`
+* TaskDto: Added new field `index`
+* TaskDto: Added new field `level`
+* TimesheetDto: Added new field `isCopied`
+* TimesheetResponseDto: Added new field `isCopied`
+* TimesheetResponseDto: Added new field `lastUpdatedDate`
+* TimesheetResponseDto: Added new field `documents`
+* TimesheetUpdateRequestDto: Added new field `documentIds`
+
+Deprecated 1 old APIs:
+* Changeset.RetrieveChangesetsByProjectID
+
+
         </PackageReleaseNotes>
         <PackageIcon>docs/logo.png</PackageIcon>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <version>127.0.185</version>
+        <version>136.1.131</version>
         <Authors>ProjectManager.com</Authors>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>
