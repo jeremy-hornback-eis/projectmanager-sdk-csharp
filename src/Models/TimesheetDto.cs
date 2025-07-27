@@ -55,8 +55,10 @@ namespace ProjectManager.SDK.Models
         /// <summary>
         /// The date of this time entry record.  You can filter on this value to obtain Timesheet data for a specific date
         /// range.
+        ///
+        /// This is a date-only field stored as a string in ISO 8601 (YYYY-MM-DD) format.
         /// </summary>
-        public DateTime? Date { get; set; }
+        public string Date { get; set; }
 
         /// <summary>
         /// Notes associated with this Timesheet, if any
@@ -111,5 +113,10 @@ namespace ProjectManager.SDK.Models
         /// To expand this field, specify the name of this field in the `$expand` parameter.
         /// </summary>
         public TimesheetFileDto[] Files { get; set; }
+
+        /// <summary>
+        /// Indicates if the timesheet entry is copied from another week.
+        /// </summary>
+        public bool? IsCopied { get; set; }
     }
 }
