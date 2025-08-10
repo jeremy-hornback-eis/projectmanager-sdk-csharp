@@ -41,7 +41,7 @@ namespace ProjectManager.SDK.Models
         public string Format { get; set; }
 
         /// <summary>
-        /// The list of column names to export
+        /// The list of column names to export, if blank all columns will be exported
         /// </summary>
         public string[] Columns { get; set; }
 
@@ -62,6 +62,7 @@ namespace ProjectManager.SDK.Models
         ///  * tags
         ///  * description
         ///  * resolution
+        ///  * type
         /// </summary>
         public string OrderBy { get; set; }
 
