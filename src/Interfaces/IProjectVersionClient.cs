@@ -47,7 +47,7 @@ namespace ProjectManager.SDK.Interfaces
         /// </summary>
         /// <param name="projectId">The unique identifier of the Project to restore</param>
         /// <param name="version">The version number to restore to</param>
-        Task<AstroResult<string>> RestoreProjectVersion(Guid projectId, int version);
+        Task<AstroResult<ProjectRestoreProjectDto>> RestoreProjectVersion(Guid projectId, int version);
 
         /// <summary>
         /// Create a Copy of a Project as of a specific Version, optionally moving it to a new Timezone.
@@ -55,6 +55,6 @@ namespace ProjectManager.SDK.Interfaces
         /// <param name="projectId">The unique identifier of the Project to copy</param>
         /// <param name="version">The version number of the Project to copy</param>
         /// <param name="timezoneOffset">If specified, sets the default timezone of the newly copied Project to this specified timezone</param>
-        Task<AstroResult<string>> CopyProjectVersion(Guid projectId, int version, int? timezoneOffset = null);
+        Task<AstroResult<ProjectRestoreProjectDto>> CopyProjectVersion(Guid projectId, int version, int? timezoneOffset = null);
     }
 }

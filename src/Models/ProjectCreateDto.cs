@@ -42,6 +42,27 @@ namespace ProjectManager.SDK.Models
         public string Description { get; set; }
 
         /// <summary>
+        /// Specify the shortId for this project. If left blank a shortId will be generated.
+        ///
+        /// A short identifier that uniquely identifies this Project within your Workspace
+        /// using a single letter followed by a number.  This code can be used for APIs
+        /// that accept Project unique identifiers.
+        ///
+        /// You can observe the short ID within the application by observing the URL of
+        /// the page you visit when you click on this project.  The page&#39;s URL will appear
+        /// in the form `https://pm.app.projectmanager.com/project/board/D16` - in this
+        /// example, the `ShortId` is `D16`.
+        ///
+        /// This id can only be set on creation, and can not be updated.
+        /// </summary>
+        public string ShortId { get; set; }
+
+        /// <summary>
+        /// An optional project short name. Up to 7 symbols
+        /// </summary>
+        public string ShortName { get; set; }
+
+        /// <summary>
         /// The unique identifier of the folder of this project, or null if not assigned.
         /// </summary>
         public Guid? FolderId { get; set; }
@@ -99,17 +120,6 @@ namespace ProjectManager.SDK.Models
         public string StatusUpdate { get; set; }
 
         /// <summary>
-        /// True if this Project is a template that will be reused as a framework
-        /// for future Projects.
-        ///
-        /// You can save a Project as a template and reuse it in the future for creating
-        /// additional Projects.  If this Project is a template, set this to `true` and this
-        /// template will be available to choose from when creating a new Project within the
-        /// application.
-        /// </summary>
-        public bool? Template { get; set; }
-
-        /// <summary>
         /// When creating a Project, you can optionally specify a Template to use to construct
         /// the Project using a collection of pre-designed Tasks.
         ///
@@ -136,8 +146,26 @@ namespace ProjectManager.SDK.Models
         public bool? Favorite { get; set; }
 
         /// <summary>
+        /// True if allow actual dates to update planned dates
+        /// </summary>
+        public bool? UpdatePlannedWithActual { get; set; }
+
+        /// <summary>
         /// Create default task status upfront
         /// </summary>
         public TaskStatusCreateDto[] TaskStatusCreate { get; set; }
+
+        /// <summary>
+        /// Working days for the project. If not specified, the workspace working days will be used.
+        /// This value can be set when the project is created but may not be updated afterwards.
+        /// </summary>
+        public ProjectWorkingDaysDto WorkingDays { get; set; }
+
+        /// <summary>
+        /// An optional external reference identifier for this Project.
+        /// This value can be used to link the Project to records in external systems,
+        /// such as ERP, CRM, or other integrations.
+        /// </summary>
+        public string ExternalReferenceId { get; set; }
     }
 }
