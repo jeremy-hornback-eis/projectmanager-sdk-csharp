@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  ProjectManager.com, Inc.
- * @version    127.0.185
+ * @version    140.0.167
  * @link       https://github.com/projectmgr/projectmanager-sdk-csharp
  */
 
@@ -39,7 +39,7 @@ namespace ProjectManager.SDK
         /// <summary>
         /// The version of the SDK
         /// </summary>
-        public const string SdkVersion = "127.0.185";
+        public const string SdkVersion = "140.0.167";
         
         private readonly string _apiUrl;
         private readonly HttpClient _client;
@@ -115,9 +115,34 @@ namespace ProjectManager.SDK
         public INotificationClient Notification { get; }
 
         /// <summary>
+        /// API methods related to Npt
+        /// </summary>
+        public INptClient Npt { get; }
+
+        /// <summary>
+        /// API methods related to NptDiscussion
+        /// </summary>
+        public INptDiscussionClient NptDiscussion { get; }
+
+        /// <summary>
         /// API methods related to NptFiles
         /// </summary>
         public INptFilesClient NptFiles { get; }
+
+        /// <summary>
+        /// API methods related to NptStatus
+        /// </summary>
+        public INptStatusClient NptStatus { get; }
+
+        /// <summary>
+        /// API methods related to NptTag
+        /// </summary>
+        public INptTagClient NptTag { get; }
+
+        /// <summary>
+        /// API methods related to NptTodos
+        /// </summary>
+        public INptTodosClient NptTodos { get; }
 
         /// <summary>
         /// API methods related to Project
@@ -193,6 +218,11 @@ namespace ProjectManager.SDK
         /// API methods related to Risk
         /// </summary>
         public IRiskClient Risk { get; }
+
+        /// <summary>
+        /// API methods related to RiskFile
+        /// </summary>
+        public IRiskFileClient RiskFile { get; }
 
         /// <summary>
         /// API methods related to Tag
@@ -298,7 +328,12 @@ namespace ProjectManager.SDK
             License = new LicenseClient(this);
             Me = new MeClient(this);
             Notification = new NotificationClient(this);
+            Npt = new NptClient(this);
+            NptDiscussion = new NptDiscussionClient(this);
             NptFiles = new NptFilesClient(this);
+            NptStatus = new NptStatusClient(this);
+            NptTag = new NptTagClient(this);
+            NptTodos = new NptTodosClient(this);
             Project = new ProjectClient(this);
             ProjectChargeCode = new ProjectChargeCodeClient(this);
             ProjectCustomer = new ProjectCustomerClient(this);
@@ -314,6 +349,7 @@ namespace ProjectManager.SDK
             ResourceSkill = new ResourceSkillClient(this);
             ResourceTeam = new ResourceTeamClient(this);
             Risk = new RiskClient(this);
+            RiskFile = new RiskFileClient(this);
             Tag = new TagClient(this);
             Task = new TaskClient(this);
             TaskAssignee = new TaskAssigneeClient(this);

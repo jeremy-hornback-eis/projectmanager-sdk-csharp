@@ -59,5 +59,15 @@ namespace ProjectManager.SDK.Interfaces
         /// <param name="taskId">The unique identifier of the Task for which we will remove existing TaskTags</param>
         /// <param name="body">The TaskTags to remove from this Task</param>
         Task<AstroResult<ChangeSetStatusDto>> RemoveTaskTagFromTask(Guid taskId, NameDto[] body);
+
+        /// <summary>
+        /// Retrieve the existing TaskTags on a Task
+        ///
+        /// A TaskTag is a connection between a Task and a Tag.  Each Task can have zero, one or many
+        /// TaskTags associated with it.  TaskTags can be assigned and removed from the Task to help you
+        /// classify your Tasks and prioritize work.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the Task for which we will retrieve TaskTags</param>
+        Task<AstroResult<TaskTagDto[]>> RetrieveTaskTags(Guid taskId);
     }
 }
