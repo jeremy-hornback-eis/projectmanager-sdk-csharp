@@ -21,14 +21,24 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// Set the connection status of an integration
+    /// Data for rejecting a timesheet approval
     /// </summary>
-    public class AuthenticationStatusDto : ApiModel
+    public class TimeSheetApprovalRejectDto : ApiModel
     {
 
         /// <summary>
-        /// Set to true if the connection was successful. False is not supported right now.
+        /// The id for the resource, if null it indicates the request is for the current logged-in user
         /// </summary>
-        public bool? Connected { get; set; }
+        public Guid? ResourceId { get; set; }
+
+        /// <summary>
+        /// The date of the week to which the timesheet applies
+        /// </summary>
+        public DateTime? Date { get; set; }
+
+        /// <summary>
+        /// The reason why the timesheet approval is being rejected
+        /// </summary>
+        public string Reason { get; set; }
     }
 }
