@@ -13,22 +13,23 @@
 
 
 
-#pragma warning disable CS8618
-
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using ProjectManager.SDK.Models;
 
-namespace ProjectManager.SDK.Models
+
+namespace ProjectManager.SDK.Interfaces
 {
-
     /// <summary>
-    /// Set the connection status of an integration
+    /// API methods related to NptStatus
     /// </summary>
-    public class AuthenticationStatusDto : ApiModel
+    public interface INptStatusClient
     {
 
         /// <summary>
-        /// Set to true if the connection was successful. False is not supported right now.
+        /// Get a list of task statuses that can be used by npt tasks.
         /// </summary>
-        public bool? Connected { get; set; }
+        Task<AstroResult<NptStatusDto[]>> GetNptTaskStatuses();
     }
 }
