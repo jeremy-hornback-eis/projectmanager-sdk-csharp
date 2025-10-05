@@ -51,7 +51,7 @@ namespace ProjectManager.SDK.Interfaces
         /// indicate whether they have a dependency or a connection.
         /// </summary>
         /// <param name="taskId">The unique identifier or short ID of the Task to retrieve</param>
-        Task<AstroResult<TaskDto>> RetrieveTask(string taskId);
+        Task<AstroResult<TaskDetailsDto>> RetrieveTask(string taskId);
 
         /// <summary>
         /// Update an existing Task and replace the values of fields specified.
@@ -85,6 +85,12 @@ namespace ProjectManager.SDK.Interfaces
         /// </summary>
         /// <param name="taskId">Unique identifier of the Task to delete</param>
         Task<AstroResult<ChangeSetStatusDto>> DeleteTask(Guid taskId);
+
+        /// <summary>
+        /// Fetch the first level child tasks from the task
+        /// </summary>
+        /// <param name="taskId">Parent task id</param>
+        Task<AstroResult<TaskDto[]>> FetchTheFirstLevelChildTasksFromTheTask(Guid taskId);
 
         /// <summary>
         /// Create a new Task within a specified project.
