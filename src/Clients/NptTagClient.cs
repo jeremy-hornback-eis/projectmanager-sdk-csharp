@@ -1,0 +1,100 @@
+/***
+ * ProjectManager API for C#
+ *
+ * (c) ProjectManager.com, Inc.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author     ProjectManager.com <support@projectmanager.com>
+ * @copyright  ProjectManager.com, Inc.
+ * @link       https://github.com/projectmgr/projectmanager-sdk-csharp
+ */
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using ProjectManager.SDK.Interfaces;
+using ProjectManager.SDK.Models;
+
+
+namespace ProjectManager.SDK.Clients
+{
+    /// <summary>
+    /// API methods related to NptTag
+    /// </summary>
+    public class NptTagClient : INptTagClient
+    {
+        private readonly ProjectManagerClient _client;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public NptTagClient(ProjectManagerClient client)
+        {
+            _client = client;
+        }
+
+        /// <summary>
+        /// Replaces the existing TaskTags on a Task with a newly provided list of TaskTags.
+        ///
+        /// A TaskTag is a connection between a Task and a Tag.  Each Task can have zero, one or many
+        /// TaskTags associated with it.  TaskTags can be assigned and removed from the Task to help you
+        /// classify your Tasks and prioritize work.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the Task for which we will replace TaskTags</param>
+        /// <param name="body">The replacement list of TaskTags for this Task</param>
+        public async Task<AstroResult<TaskTagDto[]>> ReplaceTaskTags(Guid taskId, NameDto[] body)
+        {
+            var url = $"/api/data/non-project-tasks/{taskId}/tags";
+            return await _client.RequestWithBody<TaskTagDto[]>(HttpMethod.Post, url, null, body);
+        }
+
+        /// <summary>
+        /// Add one or more new TaskTags to a Task.
+        ///
+        /// A TaskTag is a connection between a Task and a Tag.  Each Task can have zero, one or many
+        /// TaskTags associated with it.  TaskTags can be assigned and removed from the Task to help you
+        /// classify your Tasks and prioritize work.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the Task for which we will add TaskTags</param>
+        /// <param name="body">The new TaskTags to add to this Task</param>
+        public async Task<AstroResult<TaskTagDto[]>> AddTaskTagToTask(Guid taskId, NameDto[] body)
+        {
+            var url = $"/api/data/non-project-tasks/{taskId}/tags";
+            return await _client.RequestWithBody<TaskTagDto[]>(HttpMethod.Put, url, null, body);
+        }
+
+        /// <summary>
+        /// Removes one or more existing TaskTags from a Task.
+        ///
+        /// A TaskTag is a connection between a Task and a Tag.  Each Task can have zero, one or many
+        /// TaskTags associated with it.  TaskTags can be assigned and removed from the Task to help you
+        /// classify your Tasks and prioritize work.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the Task for which we will remove existing TaskTags</param>
+        /// <param name="body">The TaskTags to remove from this Task</param>
+        public async Task<AstroResult<string>> RemoveTaskTagFromTask(Guid taskId, NameDto[] body)
+        {
+            var url = $"/api/data/non-project-tasks/{taskId}/tags";
+            return await _client.RequestWithBody<string>(HttpMethod.Delete, url, null, body);
+        }
+
+        /// <summary>
+        /// Retrieve the existing TaskTags on a Task
+        ///
+        /// A TaskTag is a connection between a Task and a Tag.  Each Task can have zero, one or many
+        /// TaskTags associated with it.  TaskTags can be assigned and removed from the Task to help you
+        /// classify your Tasks and prioritize work.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the Task for which we will retrieve TaskTags</param>
+        public async Task<AstroResult<TaskTagDto[]>> RetrieveTaskTags(Guid taskId)
+        {
+            var url = $"/api/data/non-project-tasks/{taskId}/tags";
+            return await _client.Request<TaskTagDto[]>(HttpMethod.Get, url, null);
+        }
+    }
+}

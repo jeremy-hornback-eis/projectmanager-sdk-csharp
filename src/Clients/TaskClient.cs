@@ -72,10 +72,10 @@ namespace ProjectManager.SDK.Clients
         /// indicate whether they have a dependency or a connection.
         /// </summary>
         /// <param name="taskId">The unique identifier or short ID of the Task to retrieve</param>
-        public async Task<AstroResult<TaskDto>> RetrieveTask(string taskId)
+        public async Task<AstroResult<TaskDetailsDto>> RetrieveTask(string taskId)
         {
             var url = $"/api/data/tasks/{taskId}";
-            return await _client.Request<TaskDto>(HttpMethod.Get, url, null);
+            return await _client.Request<TaskDetailsDto>(HttpMethod.Get, url, null);
         }
 
         /// <summary>
@@ -117,6 +117,16 @@ namespace ProjectManager.SDK.Clients
         {
             var url = $"/api/data/tasks/{taskId}";
             return await _client.Request<ChangeSetStatusDto>(HttpMethod.Delete, url, null);
+        }
+
+        /// <summary>
+        /// Fetch the first level child tasks from the task
+        /// </summary>
+        /// <param name="taskId">Parent task id</param>
+        public async Task<AstroResult<TaskDto[]>> FetchTheFirstLevelChildTasksFromTheTask(Guid taskId)
+        {
+            var url = $"/api/data/tasks/{taskId}/subtasks";
+            return await _client.Request<TaskDto[]>(HttpMethod.Get, url, null);
         }
 
         /// <summary>

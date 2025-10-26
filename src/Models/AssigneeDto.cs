@@ -21,14 +21,24 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// Set the connection status of an integration
+    /// Task assignee dto
     /// </summary>
-    public class AuthenticationStatusDto : ApiModel
+    public class AssigneeDto : ApiModel
     {
 
         /// <summary>
-        /// Set to true if the connection was successful. False is not supported right now.
+        /// Assignee resource id
         /// </summary>
-        public bool? Connected { get; set; }
+        public Guid? ResourceId { get; set; }
+
+        /// <summary>
+        /// Percent of work assigned to task
+        /// </summary>
+        public decimal? PercentAssignment { get; set; }
+
+        /// <summary>
+        /// Effort assigned to the resource for the task.
+        /// </summary>
+        public int? AssignedEffort { get; set; }
     }
 }
