@@ -21,14 +21,16 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// This class contains the URL to use to authenticate with the Integration Provider.
+    /// A ProjectCustomer is a code used to identify costs within your Projects.  Each
+    /// ProjectCustomer has a name and a unique identifier.  ChargeCodes are defined per
+    /// Workspace and are shared among Projects.
     /// </summary>
-    public class DirectLinkDto : ApiModel
+    public class ProjectChargeCodeCreateDto : ApiModel
     {
 
         /// <summary>
-        /// The URL to use to authenticate with the Integration Provider.
+        /// The name of this ProjectCustomer
         /// </summary>
-        public string Url { get; set; }
+        public string Name { get; set; }
     }
 }

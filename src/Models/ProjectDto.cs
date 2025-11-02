@@ -61,7 +61,7 @@ namespace ProjectManager.SDK.Models
         /// in the form `https://pm.app.projectmanager.com/project/board/D16` - in this
         /// example, the `ShortId` is `D16`.
         ///
-        /// This code is automatically assigned for you and cannot be changed.
+        /// This code is assigned on creation and cannot be changed.
         /// </summary>
         public string ShortId { get; set; }
 
@@ -244,5 +244,17 @@ namespace ProjectManager.SDK.Models
         /// The percentage of the project tasks completed
         /// </summary>
         public int? PercentComplete { get; set; }
+
+        /// <summary>
+        /// True if allow actual dates to update planned dates
+        /// </summary>
+        public bool? UpdatePlannedWithActual { get; set; }
+
+        /// <summary>
+        /// An optional external reference identifier for this Project.
+        /// This value can be used to link the Project to records in external systems,
+        /// such as ERP, CRM, or other integrations.
+        /// </summary>
+        public string ExternalReferenceId { get; set; }
     }
 }
