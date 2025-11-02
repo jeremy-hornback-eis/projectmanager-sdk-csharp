@@ -6,20 +6,133 @@
         <Nullable>disable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageReadmeFile>docs/README.md</PackageReadmeFile>
-        <Description>Software development kit for the ProjectManager.com API for DotNet</Description>
+        <Description>Software development kit for the ProjectManager.com API. for DotNet</Description>
         <PackageTags>projectmanager project management task tracking projects tasks</PackageTags>
-        <Copyright>Copyright 2021 - 2025</Copyright>
+        <Copyright>Copyright 2023 - 2025</Copyright>
         <PackageReleaseNotes>
-            # Patch notes for 127.0.185
+# Patch notes for 144.2.161
 
-            These patch notes summarize the changes from version 125.1.169.
+These patch notes summarize the changes from version 127.0.185.
 
-            Deprecated 1 old APIs:
-            * WorkSpace.InviteToWorkspace
+Added 46 new APIs:
+* Me.UpdateMyAvatar (POST /api/data/me/avatar)
+* Npt.GetNpt (GET /api/data/non-project-tasks/{nptId})
+* Npt.UpdateNpt (PUT /api/data/non-project-tasks/{nptId})
+* Npt.RemoveNpt (DELETE /api/data/non-project-tasks/{nptId})
+* Npt.CreateNpt (POST /api/data/non-project-tasks)
+* NptDiscussion.RetrieveNptComments (GET /api/data/non-project-tasks/{nptId}/comments)
+* NptDiscussion.CreateNptComments (POST /api/data/non-project-tasks/{nptId}/comments)
+* NptDiscussion.LikeAComment (POST /api/data/non-project-tasks/comments/{commentId}/like)
+* NptDiscussion.RemovesAThumbsupFromAComment (DELETE /api/data/non-project-tasks/comments/{commentId}/like)
+* NptDiscussion.RemoveAComment (DELETE /api/data/non-project-tasks/comments/{commentId})
+* NptFiles.GetNptFiles (GET /api/data/non-project-tasks/{taskId}/files)
+* NptRecurrency.CreateWeeklyRecurringNpts (POST /api/data/npt/{taskId}/recurring/weekly)
+* NptRecurrency.CreateMonthlyRecurringNpts (POST /api/data/npt/{taskId}/recurring/monthly)
+* NptRecurrency.CreateDailyRecurringNpts (POST /api/data/npt/{taskId}/recurring/daily)
+* NptRecurrency.CreateYearlyRecurringNpts (POST /api/data/npt/{taskId}/recurring/yearly)
+* NptRecurrency.DeleteRecurringNpts (DELETE /api/data/npt/{taskId}/recurring/{option})
+* NptStatus.GetNptTaskStatuses (GET /api/data/non-project-tasks/statuses)
+* NptTag.ReplaceTaskTags (POST /api/data/non-project-tasks/{taskId}/tags)
+* NptTag.AddTaskTagToTask (PUT /api/data/non-project-tasks/{taskId}/tags)
+* NptTag.RemoveTaskTagFromTask (DELETE /api/data/non-project-tasks/{taskId}/tags)
+* NptTag.RetrieveTaskTags (GET /api/data/non-project-tasks/{taskId}/tags)
+* NptTodos.GetNptTodos (GET /api/data/non-project-tasks/{nptId}/todos)
+* NptTodos.CreateNptTodo (POST /api/data/non-project-tasks/{nptId}/todos)
+* NptTodos.UpdateANptTodo (PUT /api/data/non-project-tasks/todos/{todoId})
+* NptTodos.RemoveNptTodo (DELETE /api/data/non-project-tasks/todos/{todoId})
+* Project.RestoreProject (PUT /api/data/projects/{projectId}/restore)
+* ProjectChargeCode.CreateProjectChargeCode (POST /api/data/projects/chargecodes)
+* ProjectMembers.RetrieveProjectsTheUserIsAMemberOf (GET /api/data/projects/membership)
+* ProjectMembers.UpdateAListOfUserProjectMembership (PUT /api/data/projects/{projectId}/members)
+* ProjectStatus.CreateProjectStatus (POST /api/data/projects/statuses)
+* Resource.DeleteResource (DELETE /api/data/resources/{resourceId})
+* Resource.GetResourceAvatar (GET /api/data/resources/{resourceId}/avatar)
+* Risk.QueryRisks (GET /api/data/risks)
+* RiskFile.UploadRiskFile (POST /api/data/risks/{riskId}/files)
+* Task.FetchTheFirstLevelChildTasksFromTheTask (GET /api/data/tasks/{taskId}/subtasks)
+* TaskAssignee.ReturnsTaskAssignees (GET /api/data/tasks/{taskId}/assignees)
+* TaskFile.GetTaskFiles (GET /api/data/tasks/{taskId}/files)
+* TaskRecurrency.CreateWeeklyRecurringTasks (POST /api/data/tasks/{taskId}/recurring/weekly)
+* TaskRecurrency.CreateMonthlyRecurringTasks (POST /api/data/tasks/{taskId}/recurring/monthly)
+* TaskRecurrency.CreateDailyRecurringTasks (POST /api/data/tasks/{taskId}/recurring/daily)
+* TaskRecurrency.CreateYearlyRecurringTasks (POST /api/data/tasks/{taskId}/recurring/yearly)
+* TaskRecurrency.DeleteRecurringTasks (DELETE /api/data/tasks/{taskId}/recurring/{option})
+* TaskTag.RetrieveTaskTags (GET /api/data/tasks/{taskId}/tags)
+* Timesheet.SubmitResourceTimeSheetForApproval (POST /api/data/timesheets/approvals)
+* Timesheet.ApproveResourceTimeSheetApprovalRequest (POST /api/data/timesheets/approvals/approve)
+* Timesheet.RejectResourceTimeSheetApprovalRequest (POST /api/data/timesheets/approvals/reject)
+
+Renamed 8 old APIs:
+* Renamed 'Discussion.CreateTaskComments' to 'Discussion.CreateTaskComment'
+* Renamed 'Discussion.LikeAComment' to 'Discussion.LikeComment'
+* Renamed 'Discussion.RemovesAThumbsupFromAComment' to 'Discussion.UnlikeComment'
+* Renamed 'Discussion.RemoveAComment' to 'Discussion.RemoveComment'
+* Renamed 'TaskTodo.GetTodosForATask' to 'TaskTodo.GetTodos'
+* Renamed 'TaskTodo.CreateATodoForATask' to 'TaskTodo.CreateTodo'
+* Renamed 'TaskTodo.UpdateATodo' to 'TaskTodo.UpdateTodo'
+* Renamed 'TaskTodo.DeleteATodo' to 'TaskTodo.DeleteTodo'
+
+Changes to data models:
+* ProjectChargeCodeDto: Added new field `isActive`
+* ProjectCreateDto: Added new field `shortId`
+* ProjectCreateDto: Added new field `shortName`
+* ProjectCreateDto: Added new field `updatePlannedWithActual`
+* ProjectCreateDto: Added new field `workingDays`
+* ProjectCreateDto: Added new field `externalReferenceId`
+* ProjectCreateDto: Added new field `weekStartsOnMonday`
+* ProjectDto: Added new field `updatePlannedWithActual`
+* ProjectDto: Added new field `externalReferenceId`
+* ProjectManagerDto: Added new field `color`
+* ProjectTemplateDto: Added new field `ownerId`
+* ProjectTemplateDto: Added new field `createDate`
+* ProjectUpdateDto: Added new field `shortName`
+* ProjectUpdateDto: Added new field `template`
+* ProjectUpdateDto: Added new field `updatePlannedWithActual`
+* ProjectUpdateDto: Added new field `notes`
+* ProjectUpdateDto: Added new field `externalReferenceId`
+* ResourceCreateDto: Added new field `language`
+* ResourceDto: Added new field `name`
+* ResourceDto: Added new field `language`
+* ResourceSkillDto: Added new field `inUse`
+* ResourceUpdateDto: Added new field `language`
+* TaskCreateDto: Added new field `parentId`
+* TaskDto: Added new field `actualDuration`
+* TaskDto: Added new field `index`
+* TaskDto: Added new field `level`
+* TaskUpdateDto: Added new field `actualDuration`
+* TimesheetDto: Changed the data type of the field `date` from `date-time` to `date`
+* TimesheetDto: Added new field `approvalStatusId`
+* TimesheetDto: Added new field `isCopied`
+* TimesheetResponseDto: Added new field `isCopied`
+* TimesheetResponseDto: Added new field `lastUpdatedDate`
+* TimesheetResponseDto: Added new field `documents`
+* TimesheetTaskDto: Changed the data type of the field `plannedStartDate` from `date-time` to `date`
+* TimesheetTaskDto: Changed the data type of the field `plannedFinishDate` from `date-time` to `date`
+* TimesheetTaskDto: Changed the data type of the field `actualStartDate` from `date-time` to `date`
+* TimesheetTaskDto: Changed the data type of the field `actualFinishDate` from `date-time` to `date`
+* TimesheetUpdateRequestDto: Added new field `documentIds`
+* UserRoleDto: Added new field `description`
+* UserRoleDto: Added new field `isAdmin`
+* UserRoleDto: Added new field `isCustom`
+* UserRoleDto: Added new field `isGlobalAdmin`
+* UserRoleDto: Added new field `isGuest`
+* UserRoleDto: Added new field `isDefault`
+* UserRoleDto: Added new field `permissions`
+* WorkSpaceUserInfoDto: Added new field `workSpaceId`
+* WorkSpaceUserInfoDto: Added new field `workSpaceStatus`
+* WorkSpaceUserInfoDto: Added new field `workSpaceIsActive`
+* WorkSpaceUserInfoDto: Added new field `workSpaceCountry`
+* WorkSpaceUserInfoDto: Added new field `workSpaceCountryCode`
+* WorkSpaceUserInfoDto: Added new field `location`
+
+Deprecated 1 old APIs:
+* Changeset.RetrieveChangesetsByProjectID
+
+
         </PackageReleaseNotes>
         <PackageIcon>docs/logo.png</PackageIcon>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <version>127.0.185</version>
+        <version>144.2.161</version>
         <Authors>ProjectManager.com</Authors>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>

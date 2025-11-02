@@ -37,5 +37,10 @@ namespace ProjectManager.SDK.Models
         /// The name of this ChargeCode
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Status of Charge Code
+        /// </summary>
+        public bool? IsActive { get; set; }
     }
 }

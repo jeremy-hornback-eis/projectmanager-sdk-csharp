@@ -43,24 +43,24 @@ namespace ProjectManager.SDK.Interfaces
         /// </summary>
         /// <param name="taskId">The unique ID number of the task being commented upon</param>
         /// <param name="body">The Markdown-formatted text of the comment</param>
-        Task<AstroResult<DiscussionCommentCreateResponseDto>> CreateTaskComments(Guid taskId, DiscussionCommentCreateDto body);
+        Task<AstroResult<DiscussionCommentCreateResponseDto>> CreateTaskComment(Guid taskId, DiscussionCommentCreateDto body);
 
         /// <summary>
         /// Puts a thumbsup on a comment
         /// </summary>
         /// <param name="commentId">the id of the comment</param>
-        Task<AstroResult<string>> LikeAComment(Guid commentId);
+        Task<AstroResult<string>> LikeComment(Guid commentId);
 
         /// <summary>
         /// Unlike a comment that was previously liked
         /// </summary>
         /// <param name="commentId">the id of the comment</param>
-        Task<AstroResult<string>> RemovesAThumbsupFromAComment(Guid commentId);
+        Task<AstroResult<string>> UnlikeComment(Guid commentId);
 
         /// <summary>
         /// Removes a comment by it&#39;s id
         /// </summary>
         /// <param name="commentId">Remove a comment</param>
-        Task<AstroResult<string>> RemoveAComment(Guid commentId);
+        Task<AstroResult<string>> RemoveComment(Guid commentId);
     }
 }
