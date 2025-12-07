@@ -58,7 +58,7 @@ namespace ProjectManager.SDK.Clients
         /// </summary>
         /// <param name="taskId">The unique ID number of the task being commented upon</param>
         /// <param name="body">The Markdown-formatted text of the comment</param>
-        public async Task<AstroResult<DiscussionCommentCreateResponseDto>> CreateTaskComments(Guid taskId, DiscussionCommentCreateDto body)
+        public async Task<AstroResult<DiscussionCommentCreateResponseDto>> CreateTaskComment(Guid taskId, DiscussionCommentCreateDto body)
         {
             var url = $"/api/data/tasks/{taskId}/comments";
             return await _client.RequestWithBody<DiscussionCommentCreateResponseDto>(HttpMethod.Post, url, null, body);
@@ -68,7 +68,7 @@ namespace ProjectManager.SDK.Clients
         /// Puts a thumbsup on a comment
         /// </summary>
         /// <param name="commentId">the id of the comment</param>
-        public async Task<AstroResult<string>> LikeAComment(Guid commentId)
+        public async Task<AstroResult<string>> LikeComment(Guid commentId)
         {
             var url = $"/api/data/comments/{commentId}/like";
             return await _client.Request<string>(HttpMethod.Post, url, null);
@@ -78,7 +78,7 @@ namespace ProjectManager.SDK.Clients
         /// Unlike a comment that was previously liked
         /// </summary>
         /// <param name="commentId">the id of the comment</param>
-        public async Task<AstroResult<string>> RemovesAThumbsupFromAComment(Guid commentId)
+        public async Task<AstroResult<string>> UnlikeComment(Guid commentId)
         {
             var url = $"/api/data/comments/{commentId}/like";
             return await _client.Request<string>(HttpMethod.Delete, url, null);
@@ -88,7 +88,7 @@ namespace ProjectManager.SDK.Clients
         /// Removes a comment by it&#39;s id
         /// </summary>
         /// <param name="commentId">Remove a comment</param>
-        public async Task<AstroResult<string>> RemoveAComment(Guid commentId)
+        public async Task<AstroResult<string>> RemoveComment(Guid commentId)
         {
             var url = $"/api/data/comments/{commentId}";
             return await _client.Request<string>(HttpMethod.Delete, url, null);

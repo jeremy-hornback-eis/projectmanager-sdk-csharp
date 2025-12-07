@@ -55,8 +55,10 @@ namespace ProjectManager.SDK.Models
         /// <summary>
         /// The date of this time entry record.  You can filter on this value to obtain Timesheet data for a specific date
         /// range.
+        ///
+        /// This is a date-only field stored as a string in ISO 8601 (YYYY-MM-DD) format.
         /// </summary>
-        public DateTime? Date { get; set; }
+        public string Date { get; set; }
 
         /// <summary>
         /// Notes associated with this Timesheet, if any
@@ -67,6 +69,15 @@ namespace ProjectManager.SDK.Models
         /// True if this Timesheet was approved by a person with the role of a Timesheet approver
         /// </summary>
         public bool? Approved { get; set; }
+
+        /// <summary>
+        /// Approval status of the timesheet entry.
+        /// 1 = New (not submitted for approval)
+        /// 2 = Submitted (submitted for approval, pending review)
+        /// 3 = Approved (approved by the approver)
+        /// 4 = Declined (declined by the approver)
+        /// </summary>
+        public int? ApprovalStatusId { get; set; }
 
         /// <summary>
         /// Total Hours spent on this Task by this Resource on this specific Date
@@ -111,5 +122,10 @@ namespace ProjectManager.SDK.Models
         /// To expand this field, specify the name of this field in the `$expand` parameter.
         /// </summary>
         public TimesheetFileDto[] Files { get; set; }
+
+        /// <summary>
+        /// Indicates if the timesheet entry is copied from another week.
+        /// </summary>
+        public bool? IsCopied { get; set; }
     }
 }

@@ -6,20 +6,154 @@
         <Nullable>disable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageReadmeFile>docs/README.md</PackageReadmeFile>
-        <Description>Software development kit for the ProjectManager.com API for DotNet</Description>
+        <Description>Software development kit for the ProjectManager.com API. for DotNet</Description>
         <PackageTags>projectmanager project management task tracking projects tasks</PackageTags>
-        <Copyright>Copyright 2021 - 2025</Copyright>
+        <Copyright>Copyright 2023 - 2025</Copyright>
         <PackageReleaseNotes>
-            # Patch notes for 127.0.185
+## Patch notes for 146.1.229
 
-            These patch notes summarize the changes from version 125.1.169.
+These patch notes summarize the changes from version 127.0.185.
 
-            Deprecated 1 old APIs:
-            * WorkSpace.InviteToWorkspace
+Added 57 new endpoints:
+* Me.UpdateMyAvatar
+* Npt.GetNpt
+* Npt.UpdateNpt
+* Npt.RemoveNpt
+* Npt.CreateNpt
+* NptDiscussion.RetrieveNptComments
+* NptDiscussion.CreateNptComments
+* NptDiscussion.LikeAComment
+* NptDiscussion.RemovesAThumbsupFromAComment
+* NptDiscussion.RemoveAComment
+* NptFiles.GetNptFiles
+* NptRecurrency.CreateWeeklyRecurringNpts
+* NptRecurrency.CreateMonthlyRecurringNpts
+* NptRecurrency.CreateDailyRecurringNpts
+* NptRecurrency.CreateYearlyRecurringNpts
+* NptRecurrency.DeleteRecurringNpts
+* NptRecurrency.ValidateRecurringNpts
+* NptRecurrency.UpdateRecurringNpts
+* NptStatus.GetNptTaskStatuses
+* NptTag.ReplaceTaskTags
+* NptTag.AddTaskTagToTask
+* NptTag.RemoveTaskTagFromTask
+* NptTag.RetrieveTaskTags
+* NptTodos.GetNptTodos
+* NptTodos.CreateNptTodo
+* NptTodos.UpdateANptTodo
+* NptTodos.RemoveNptTodo
+* Project.RestoreProject
+* ProjectChargeCode.CreateProjectChargeCode
+* ProjectChargeCode.UpdateProjectChargeCode
+* ProjectChargeCode.DeleteProjectChargeCode
+* ProjectFolder.CreateProjectFolder
+* ProjectFolder.UpdateProjectFolder
+* ProjectFolder.DeleteProjectFolder
+* ProjectMembers.RetrieveProjectsTheUserIsAMemberOf
+* ProjectMembers.UpdateAListOfUserProjectMembership
+* ProjectStatus.CreateProjectStatus
+* ProjectStatus.UpdateProjectStatus
+* ProjectStatus.DeleteProjectStatus
+* Resource.DeleteResource
+* Resource.GetResourceAvatar
+* Risk.QueryRisks
+* RiskFile.UploadRiskFile
+* Task.FetchTheFirstLevelChildTasksFromTheTask
+* TaskAssignee.ReturnsTaskAssignees
+* TaskFile.GetTaskFiles
+* TaskRecurrency.CreateWeeklyRecurringTasks
+* TaskRecurrency.CreateMonthlyRecurringTasks
+* TaskRecurrency.CreateDailyRecurringTasks
+* TaskRecurrency.CreateYearlyRecurringTasks
+* TaskRecurrency.DeleteRecurringTasks
+* TaskRecurrency.ValidateRecurringTasks
+* TaskRecurrency.UpdateRecurringTasks
+* TaskTag.RetrieveTaskTags
+* Timesheet.SubmitTimeSheet
+* Timesheet.ApproveTimeSheet
+* Timesheet.RejectTimeSheet
+
+Renamed 10 endpoints:
+* Renamed Discussion.CreateTaskComments to Discussion.CreateTaskComment
+* Renamed Discussion.LikeAComment to Discussion.LikeComment
+* Renamed Discussion.RemovesAThumbsupFromAComment to Discussion.UnlikeComment
+* Renamed Discussion.RemoveAComment to Discussion.RemoveComment
+* Renamed TaskTodo.GetTodosForATask to TaskTodo.GetTodos
+* Renamed TaskTodo.CreateATodoForATask to TaskTodo.CreateTodo
+* Renamed TaskTodo.UpdateATodo to TaskTodo.UpdateTodo
+* Renamed TaskTodo.DeleteATodo to TaskTodo.DeleteTodo
+* Renamed Timesheet.QueryTimeSheets to Timesheet.QueryTimeEntries
+* Renamed Timesheet.ReturnsActiveAdminTasksThatAreUsedToReportTime to Timesheet.RetrieveAdministrativeTasks
+
+Changes to data models:
+* IntegrationDto: Removed field `config`
+* ProjectChargeCodeDto: Added new field `isActive`
+* ProjectCreateDto: Added new field `shortId`
+* ProjectCreateDto: Added new field `shortName`
+* ProjectCreateDto: Added new field `updatePlannedWithActual`
+* ProjectCreateDto: Added new field `workingDays`
+* ProjectCreateDto: Added new field `externalReferenceId`
+* ProjectCreateDto: Added new field `weekStartsOnMonday`
+* ProjectDto: Added new field `updatePlannedWithActual`
+* ProjectDto: Added new field `externalReferenceId`
+* ProjectDto: Added new field `ownerId`
+* ProjectDto: Added new field `workingDays`
+* ProjectManagerDto: Added new field `color`
+* ProjectStatusDto: Added new field `isSystem`
+* ProjectTemplateDto: Added new field `ownerId`
+* ProjectTemplateDto: Added new field `createDate`
+* ProjectUpdateDto: Added new field `shortName`
+* ProjectUpdateDto: Added new field `template`
+* ProjectUpdateDto: Added new field `updatePlannedWithActual`
+* ProjectUpdateDto: Added new field `notes`
+* ProjectUpdateDto: Added new field `externalReferenceId`
+* ProjectVersionDto: Added new field `applicationName`
+* ProjectVersionDto: Added new field `tokenId`
+* ProjectVersionDto: Added new field `tokenName`
+* ResourceCreateDto: Added new field `language`
+* ResourceDto: Added new field `name`
+* ResourceDto: Added new field `language`
+* ResourceSkillDto: Added new field `inUse`
+* ResourceUpdateDto: Added new field `language`
+* TaskCreateDto: Added new field `parentId`
+* TaskCreateDto: Added new field `index`
+* TaskDto: Added new field `actualDuration`
+* TaskDto: Added new field `index`
+* TaskDto: Added new field `level`
+* TaskUpdateDto: Added new field `actualDuration`
+* TimesheetDto: Changed the data type of the field `date` from `date-time` to `date`
+* TimesheetDto: Added new field `approvalStatusId`
+* TimesheetDto: Added new field `isCopied`
+* TimesheetResponseDto: Added new field `isCopied`
+* TimesheetResponseDto: Added new field `lastUpdatedDate`
+* TimesheetResponseDto: Added new field `documents`
+* TimesheetTaskDto: Changed the data type of the field `plannedStartDate` from `date-time` to `date`
+* TimesheetTaskDto: Changed the data type of the field `plannedFinishDate` from `date-time` to `date`
+* TimesheetTaskDto: Changed the data type of the field `actualStartDate` from `date-time` to `date`
+* TimesheetTaskDto: Changed the data type of the field `actualFinishDate` from `date-time` to `date`
+* TimesheetUpdateRequestDto: Added new field `documentIds`
+* UserRoleDto: Added new field `description`
+* UserRoleDto: Added new field `isAdmin`
+* UserRoleDto: Added new field `isCustom`
+* UserRoleDto: Added new field `isGlobalAdmin`
+* UserRoleDto: Added new field `isGuest`
+* UserRoleDto: Added new field `isDefault`
+* UserRoleDto: Added new field `permissions`
+* WorkSpaceUserInfoDto: Added new field `workSpaceId`
+* WorkSpaceUserInfoDto: Added new field `workSpaceStatus`
+* WorkSpaceUserInfoDto: Added new field `workSpaceIsActive`
+* WorkSpaceUserInfoDto: Added new field `workSpaceCountry`
+* WorkSpaceUserInfoDto: Added new field `workSpaceCountryCode`
+* WorkSpaceUserInfoDto: Added new field `location`
+
+Deprecated 1 old endpoints:
+* Changeset.RetrieveChangesetsByProjectID
+
+
         </PackageReleaseNotes>
         <PackageIcon>docs/logo.png</PackageIcon>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <version>127.0.185</version>
+        <version>146.1.229</version>
         <Authors>ProjectManager.com</Authors>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>
