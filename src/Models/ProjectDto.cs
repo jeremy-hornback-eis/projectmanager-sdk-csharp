@@ -61,7 +61,7 @@ namespace ProjectManager.SDK.Models
         /// in the form `https://pm.app.projectmanager.com/project/board/D16` - in this
         /// example, the `ShortId` is `D16`.
         ///
-        /// This code is automatically assigned for you and cannot be changed.
+        /// This code is assigned on creation and cannot be changed.
         /// </summary>
         public string ShortId { get; set; }
 
@@ -244,5 +244,30 @@ namespace ProjectManager.SDK.Models
         /// The percentage of the project tasks completed
         /// </summary>
         public int? PercentComplete { get; set; }
+
+        /// <summary>
+        /// True if allow actual dates to update planned dates
+        /// </summary>
+        public bool? UpdatePlannedWithActual { get; set; }
+
+        /// <summary>
+        /// An optional external reference identifier for this Project.
+        /// This value can be used to link the Project to records in external systems,
+        /// such as ERP, CRM, or other integrations.
+        /// </summary>
+        public string ExternalReferenceId { get; set; }
+
+        /// <summary>
+        /// Represents the unique identifier of the owner associated with the Project.
+        /// This may be used to identify the user or entity responsible for the Project.
+        /// </summary>
+        public Guid? OwnerId { get; set; }
+
+        /// <summary>
+        /// Represents the configuration of working days for the project, indicating which days of the week
+        /// are considered as working days.
+        /// This allows for customization of scheduling and availability based on the project&#39;s requirements.
+        /// </summary>
+        public ProjectWorkingDaysDto WorkingDays { get; set; }
     }
 }
