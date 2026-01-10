@@ -21,14 +21,24 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// This class contains the URL to use to authenticate with the Integration Provider.
+    /// Data for rejecting a timesheet approval
     /// </summary>
-    public class DirectLinkDto : ApiModel
+    public class TimeSheetApprovalRejectDto : ApiModel
     {
 
         /// <summary>
-        /// The URL to use to authenticate with the Integration Provider.
+        /// The id for the resource, if null it indicates the request is for the current logged-in user
         /// </summary>
-        public string Url { get; set; }
+        public Guid? ResourceId { get; set; }
+
+        /// <summary>
+        /// The date of the week to which the timesheet applies
+        /// </summary>
+        public DateTime? Date { get; set; }
+
+        /// <summary>
+        /// The reason why the timesheet approval is being rejected
+        /// </summary>
+        public string Reason { get; set; }
     }
 }
