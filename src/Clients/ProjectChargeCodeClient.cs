@@ -50,5 +50,36 @@ namespace ProjectManager.SDK.Clients
             var url = $"/api/data/projects/chargecodes";
             return await _client.Request<ProjectChargeCodeDto[]>(HttpMethod.Get, url, null);
         }
+
+        /// <summary>
+        /// Create a project charge code
+        /// </summary>
+        /// <param name="body">The data to create the charge code</param>
+        public async Task<AstroResult<ProjectChargeCodeDto>> CreateProjectChargeCode(ProjectChargeCodeCreateDto body)
+        {
+            var url = $"/api/data/projects/chargecodes";
+            return await _client.RequestWithBody<ProjectChargeCodeDto>(HttpMethod.Post, url, null, body);
+        }
+
+        /// <summary>
+        /// Update a project charge code
+        /// </summary>
+        /// <param name="chargeCodeId">The id of the charge code</param>
+        /// <param name="body">The data to update the charge code</param>
+        public async Task<AstroResult<ProjectChargeCodeDto>> UpdateProjectChargeCode(Guid chargeCodeId, ProjectChargeCodeUpdateDto body)
+        {
+            var url = $"/api/data/projects/chargecodes/{chargeCodeId}";
+            return await _client.RequestWithBody<ProjectChargeCodeDto>(HttpMethod.Put, url, null, body);
+        }
+
+        /// <summary>
+        /// Delete a project charge code
+        /// </summary>
+        /// <param name="chargeCodeId">The id of the charge code</param>
+        public async Task<AstroResult<string>> DeleteProjectChargeCode(Guid chargeCodeId)
+        {
+            var url = $"/api/data/projects/chargecodes/{chargeCodeId}";
+            return await _client.Request<string>(HttpMethod.Delete, url, null);
+        }
     }
 }
