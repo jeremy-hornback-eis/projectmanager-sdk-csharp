@@ -114,6 +114,22 @@ namespace ProjectManager.SDK.Clients
         }
 
         /// <summary>
+        /// Deletes an existing Resource based on information you provide.
+        ///
+        /// A Resource represents a person, material, or tool used within your Projects.
+        /// When you attach a Resources to more than one Task, the software will schedule the usage
+        /// of your Resource so that it is not allocated to more than one Task at the same time.
+        /// The users in your Workspace are also considered Resources.  To invite a new User to your
+        /// Workspace, create a new Resource for that user.
+        /// </summary>
+        /// <param name="resourceId">The id of the resource</param>
+        public async Task<AstroResult<ResourceDto>> DeleteResource(Guid resourceId)
+        {
+            var url = $"/api/data/resources/{resourceId}";
+            return await _client.Request<ResourceDto>(HttpMethod.Delete, url, null);
+        }
+
+        /// <summary>
         /// Create new Resources within your Workspace.
         ///
         /// A Resource represents a person, material, or tool that is used within your Projects.
@@ -140,6 +156,16 @@ namespace ProjectManager.SDK.Clients
         public async Task<AstroResult<string>> ResendInviteEmail(Guid resourceId)
         {
             var url = $"/api/data/resources/{resourceId}/resendinvite";
+            return await _client.Request<string>(HttpMethod.Get, url, null);
+        }
+
+        /// <summary>
+        /// Get Resource Avatar
+        /// </summary>
+        /// <param name="resourceId">The id of the resource</param>
+        public async Task<AstroResult<string>> GetResourceAvatar(Guid resourceId)
+        {
+            var url = $"/api/data/resources/{resourceId}/avatar";
             return await _client.Request<string>(HttpMethod.Get, url, null);
         }
     }
