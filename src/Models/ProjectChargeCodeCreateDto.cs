@@ -21,14 +21,16 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// Set the connection status of an integration
+    /// A Charge Code is a code used to identify costs within your Projects.  Each
+    /// Charge Code has a name and a unique identifier.  ChargeCodes are defined per
+    /// Workspace and are shared among Projects.
     /// </summary>
-    public class AuthenticationStatusDto : ApiModel
+    public class ProjectChargeCodeCreateDto : ApiModel
     {
 
         /// <summary>
-        /// Set to true if the connection was successful. False is not supported right now.
+        /// The name of this Charge Code
         /// </summary>
-        public bool? Connected { get; set; }
+        public string Name { get; set; }
     }
 }

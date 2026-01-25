@@ -53,10 +53,21 @@ namespace ProjectManager.SDK.Clients
         /// </summary>
         /// <param name="taskId">The reference to the task</param>
         /// <param name="fileName">The full path of a file to upload to the API</param>
+        /// <param name="fileBytes">The contents of the file to upload as a `byte[]` array</param>
         public async Task<AstroResult<FileDto>> UploadFileToNonProjectTasks(Guid taskId, string fileName, byte[] fileBytes)
         {
             var url = $"/api/data/non-project-tasks/{taskId}/files";
             return await _client.RequestWithFile<FileDto>(HttpMethod.Post, url, null, fileBytes, fileName);
+        }
+
+        /// <summary>
+        /// retrieves Npt files
+        /// </summary>
+        /// <param name="taskId">The reference to the Npt</param>
+        public async Task<AstroResult<TaskFileDto[]>> GetNptFiles(Guid taskId)
+        {
+            var url = $"/api/data/non-project-tasks/{taskId}/files";
+            return await _client.Request<TaskFileDto[]>(HttpMethod.Get, url, null);
         }
     }
 }
