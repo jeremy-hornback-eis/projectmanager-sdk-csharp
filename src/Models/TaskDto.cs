@@ -157,6 +157,11 @@ namespace ProjectManager.SDK.Models
         public int? ActualEffort { get; set; }
 
         /// <summary>
+        /// The actual duration (in minutes) for this Task.
+        /// </summary>
+        public int? ActualDuration { get; set; }
+
+        /// <summary>
         /// The timestamp in UTC when this Task was most recently modified.
         /// </summary>
         public DateTime? ModifyDate { get; set; }
@@ -261,6 +266,22 @@ namespace ProjectManager.SDK.Models
         /// The planned effort (in minutes) for this Task.
         /// </summary>
         public int? PlannedEffort { get; set; }
+
+        /// <summary>
+        /// The one-based index of this Task within its parent project.
+        ///
+        /// This value is used to determine the order of tasks and sub-tasks in a project.
+        /// For example, a Task with an Index of 1 is the first Task in the project.
+        /// </summary>
+        public int? Index { get; set; }
+
+        /// <summary>
+        /// The hierarchical level of this Task within the Task structure.
+        ///
+        /// A Level of 1 indicates that the Task is at the top level (e.g. a root Task),
+        /// while higher values indicate deeper levels in the hierarchy (e.g. subtasks).
+        /// </summary>
+        public int? Level { get; set; }
 
         /// <summary>
         /// Task fields array with values
