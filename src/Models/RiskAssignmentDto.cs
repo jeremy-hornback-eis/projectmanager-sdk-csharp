@@ -21,30 +21,24 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// Represents a country with its details.
+    /// User assigned to task or risk
     /// </summary>
-    public class CountryDto : ApiModel
+    public class RiskAssignmentDto : ApiModel
     {
 
         /// <summary>
-        /// Gets or sets the unique identifier for the country. This should translate to the ISO2 code
-        /// for that country.
+        /// Task or risk the user is assigned to
         /// </summary>
-        public string Id { get; set; }
+        public Guid? TaskId { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the country.
+        /// The task or risk project Id
         /// </summary>
-        public string Name { get; set; }
+        public Guid? ProjectId { get; set; }
 
         /// <summary>
-        /// The PM Internal Id Reference for a country
+        /// Resource identifier
         /// </summary>
-        public int? CountryId { get; set; }
-
-        /// <summary>
-        /// The Culture name for a country
-        /// </summary>
-        public string CultureName { get; set; }
+        public Guid? ResourceId { get; set; }
     }
 }

@@ -21,24 +21,15 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// User assigned to task or risk
+    /// Represents a request to update the approval status of a Task.
     /// </summary>
-    public class AssignmentDto : ApiModel
+    public class TaskApprovalStatusUpdateDto : ApiModel
     {
 
         /// <summary>
-        /// Task or risk the user is assigned to
+        /// The approval status to apply to the Task.
+        /// Must be one of: Approved, Denied, or Pending.
         /// </summary>
-        public Guid? TaskId { get; set; }
-
-        /// <summary>
-        /// The task or risk project Id
-        /// </summary>
-        public Guid? ProjectId { get; set; }
-
-        /// <summary>
-        /// Resource identifier
-        /// </summary>
-        public Guid? ResourceId { get; set; }
+        public string Status { get; set; }
     }
 }
