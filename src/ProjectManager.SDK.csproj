@@ -10,28 +10,71 @@
         <PackageTags>projectmanager project management task tracking projects tasks</PackageTags>
         <Copyright>Copyright 2023 - 2026</Copyright>
         <PackageReleaseNotes>
-## Patch notes for 148.0.136
+## Patch notes for 153.2.193
 
-These patch notes summarize the changes from version 146.1.229.
+These patch notes summarize the changes from version 148.0.136.
 
-Added 11 new endpoints:
-* Meetings.GetMeeting
-* Meetings.UpdateMeeting
-* Meetings.RemoveMeeting
-* Meetings.CreateMeeting
-* Meetings.CreateWeeklyRecurringMeetings
-* Meetings.CreateMonthlyRecurringMeetings
-* Meetings.CreateDailyRecurringMeetings
-* Meetings.CreateYearlyRecurringMeetings
-* Meetings.DeleteRecurringMeetings
-* Meetings.ValidateRecurringMeetingSettings
-* Meetings.UpdateRecurringMeetingSettings
+Added 30 new endpoints:
+* HourlyRate.CreateHourlyRate
+* HourlyRate.GetHourlyRates
+* HourlyRate.UpdateHourlyRateValue
+* HourlyRate.GetHourlyRate
+* HourlyRate.DeleteHourlyRate
+* HourlyRatePeriod.GetRatePeriods
+* HourlyRatePeriod.CreateRatePeriod
+* Me.RemoveMyAvatar
+* MeetingTag.ReplaceMeetingTags
+* MeetingTag.AddTagsToMeeting
+* MeetingTag.RemoveTagsFromMeeting
+* MeetingTag.RetrieveTagsForAMeeting
+* MeetingTodos.GetMeetingTodos
+* MeetingTodos.CreateMeetingTodos
+* MeetingTodos.UpdateAMeetingTodos
+* MeetingTodos.RemoveMeetingTodos
+* Project.ReopenProjectStatus
+* ProjectPriority.CreateProjectPriority
+* ProjectPriority.UpdateProjectPriority
+* ProjectPriority.DeleteProjectPriority
+* Risk.GetRisk
+* Risk.UpdateRisk
+* Risk.RemoveRisk
+* Risk.GetRisksForProject
+* Risk.CreateRisk
+* RiskTag.ReplaceRiskTags
+* RiskTag.AddTagsToRisk
+* RiskTag.RemoveTagsFromRisk
+* RiskTag.RetrieveTagsForARisk
+* Tag.DeleteTag
+
+Changes to data models:
+* CountryDto: Added new field `countryId`
+* CountryDto: Added new field `cultureName`
+* MeetingDetailsDto: Added new field `project`
+* MeetingDto: Added new field `project`
+* ProjectMemberDto: Added new field `projectId`
+* ResourceCreateDto: Added new field `publicAvatarId`
+* ResourceDto: Added new field `resourceTypeId`
+* ResourceUpdateDto: Added new field `publicAvatarId`
+* ResourceUpdateDto: Added new field `clearAvatar`
+* RiskDto: Changed the data type of the field `assignments` from `AssignmentDto` to `RiskAssignmentDto`
+* RiskDto: Added new field `project`
+* TagUpdateDto: Added new field `name`
+* TaskFileDto: Added new field `createDate`
+* TaskFileDto: Added new field `fileType`
+* TaskFileDto: Added new field `fileTypeLabel`
+* WorkSpaceUserInfoDto: Added new field `workspaceCulture`
+* WorkSpaceUserInfoDto: Added new field `workspaceCurrencyCulture`
+* WorkSpaceUserInfoDto: Added new field `userCulture`
+* WorkSpaceUserInfoDto: Added new field `userCurrencyCulture`
+
+Deprecated 1 old endpoints:
+* Project.RestoreProject
 
 
         </PackageReleaseNotes>
         <PackageIcon>docs/logo.png</PackageIcon>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<version>148.0.136</version>
+		<version>153.2.193</version>
         <Authors>ProjectManager.com</Authors>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>
