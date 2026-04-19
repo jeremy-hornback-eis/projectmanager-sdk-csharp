@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  ProjectManager.com, Inc.
- * @version    148.0.136
+ * @version    153.2.193
  * @link       https://github.com/projectmgr/projectmanager-sdk-csharp
  */
 
@@ -52,6 +52,14 @@ namespace ProjectManager.SDK
         /// </summary>
         IHomeFileClient HomeFile { get; }
         /// <summary>
+        /// API methods related to HourlyRate
+        /// </summary>
+        IHourlyRateClient HourlyRate { get; }
+        /// <summary>
+        /// API methods related to HourlyRatePeriod
+        /// </summary>
+        IHourlyRatePeriodClient HourlyRatePeriod { get; }
+        /// <summary>
         /// API methods related to Integration
         /// </summary>
         IIntegrationClient Integration { get; }
@@ -75,6 +83,14 @@ namespace ProjectManager.SDK
         /// API methods related to Meetings
         /// </summary>
         IMeetingsClient Meetings { get; }
+        /// <summary>
+        /// API methods related to MeetingTag
+        /// </summary>
+        IMeetingTagClient MeetingTag { get; }
+        /// <summary>
+        /// API methods related to MeetingTodos
+        /// </summary>
+        IMeetingTodosClient MeetingTodos { get; }
         /// <summary>
         /// API methods related to Notification
         /// </summary>
@@ -171,6 +187,10 @@ namespace ProjectManager.SDK
         /// API methods related to RiskFile
         /// </summary>
         IRiskFileClient RiskFile { get; }
+        /// <summary>
+        /// API methods related to RiskTag
+        /// </summary>
+        IRiskTagClient RiskTag { get; }
         /// <summary>
         /// API methods related to Tag
         /// </summary>

@@ -21,30 +21,26 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// Represents a country with its details.
+    /// A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks
+    /// represent individual items of work that team members must complete.  The sum total of Tasks
+    /// within a Project represents the work to be completed for that Project.
     /// </summary>
-    public class CountryDto : ApiModel
+    public class MeetingProjectDto : ApiModel
     {
 
         /// <summary>
-        /// Gets or sets the unique identifier for the country. This should translate to the ISO2 code
-        /// for that country.
+        /// The unique identifier of this Project.
         /// </summary>
-        public string Id { get; set; }
+        public Guid? Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the country.
+        /// The ShortId of this Project.
+        /// </summary>
+        public string ShortId { get; set; }
+
+        /// <summary>
+        /// The common name of this Project.
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// The PM Internal Id Reference for a country
-        /// </summary>
-        public int? CountryId { get; set; }
-
-        /// <summary>
-        /// The Culture name for a country
-        /// </summary>
-        public string CultureName { get; set; }
     }
 }
