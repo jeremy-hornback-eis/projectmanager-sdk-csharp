@@ -21,19 +21,21 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// Dto To Describe a ProjectMember Role
+    /// Planned minutes attributed to a single calendar day for a resource.
     /// </summary>
-    public class ProjectMemberRoleDto : ApiModel
+    public class TaskPlannedAllocationDto : ApiModel
     {
 
         /// <summary>
-        /// Role to apply. Optional — when omitted, a default role is applied based on the
-        /// target user&#39;s workspace access: users who can edit all projects become a Manager,
-        /// guest users become a Guest, and everyone else becomes an Editor. When updating an
-        /// existing member, omitting the role leaves their current role unchanged.
+        /// Calendar date for this planned segment (date-only; workspace calendar applies).
         ///
-        /// For a list of values, see `ProjectPermissionValues`.
+        /// This is a date-only field stored as a string in ISO 8601 (YYYY-MM-DD) format.
         /// </summary>
-        public string Role { get; set; }
+        public string Date { get; set; }
+
+        /// <summary>
+        /// Planned minutes on date for this resource.
+        /// </summary>
+        public int? Minutes { get; set; }
     }
 }
