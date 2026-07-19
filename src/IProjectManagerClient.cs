@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  ProjectManager.com, Inc.
- * @version    154.0.181
+ * @version    2026.159.208
  * @link       https://github.com/projectmgr/projectmanager-sdk-csharp
  */
 
@@ -32,10 +32,6 @@ namespace ProjectManager.SDK
         /// </summary>
         IChangesetClient Changeset { get; }
         /// <summary>
-        /// API methods related to Dashboard
-        /// </summary>
-        IDashboardClient Dashboard { get; }
-        /// <summary>
         /// API methods related to Discussion
         /// </summary>
         IDiscussionClient Discussion { get; }
@@ -43,10 +39,6 @@ namespace ProjectManager.SDK
         /// API methods related to File
         /// </summary>
         IFileClient File { get; }
-        /// <summary>
-        /// API methods related to Holiday
-        /// </summary>
-        IHolidayClient Holiday { get; }
         /// <summary>
         /// API methods related to HomeFile
         /// </summary>
