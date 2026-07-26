@@ -21,15 +21,15 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// Represents a request to update the approval status of a Task.
+    /// Request to grant project access to all active people on a business team.
     /// </summary>
-    public class TaskApprovalStatusUpdateDto : ApiModel
+    public class AddProjectTeamMembersRequestDto : ApiModel
     {
 
         /// <summary>
-        /// The approval status to apply to the Task.
-        /// Must be one of: approved, denied, or pending.
+        /// When true, new teammates receive editor-level access (subject to workspace role rules).
+        /// When false, they receive collaborator access (again subject to role rules, e.g. guests).
         /// </summary>
-        public string Status { get; set; }
+        public bool? AddAsEditor { get; set; }
     }
 }
