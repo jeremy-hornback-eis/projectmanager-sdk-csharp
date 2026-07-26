@@ -20,16 +20,23 @@ using System;
 namespace ProjectManager.SDK.Models
 {
 
-    /// <summary>
-    /// Represents a request to update the approval status of a Task.
-    /// </summary>
-    public class TaskApprovalStatusUpdateDto : ApiModel
+    public class TaskStatusUpdateObsoleteDto : ApiModel
     {
 
         /// <summary>
-        /// The approval status to apply to the Task.
-        /// Must be one of: approved, denied, or pending.
+        /// The name of this TaskStatus.
         /// </summary>
-        public string Status { get; set; }
+        public string Name { get; set; }
+
+        /// <summary>
+        /// A numerical value that can be used to sort TaskStatus values according to the
+        /// needs of your business.
+        /// </summary>
+        public int? Order { get; set; }
+
+        /// <summary>
+        /// The unique identifier of this TaskStatus.
+        /// </summary>
+        public Guid? Id { get; set; }
     }
 }

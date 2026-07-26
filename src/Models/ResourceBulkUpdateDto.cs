@@ -21,14 +21,26 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// A Resource represents a person, material, or tool that is used within your Projects.
-    /// When you attach a Resources to more than one Task, the software will schedule the usage
-    /// of your Resource so that it is not allocated to more than one Task at the same time.
-    /// The users in your Workspace are also considered Resources.  To invite a new User to your
-    /// Workspace, create a new Resource for that user.
+    /// Represents the values to apply to a single Resource as part of a bulk Resource update API call.
+    ///
+    /// This is a deliberately reduced version of Astro.Api.Dto.Resources.ResourceUpdateDto. Only fields that are
+    /// sensible to update across many Resources at once are included. The following fields are intentionally
+    /// omitted because they represent per-person identity or carry per-Resource side effects that should not
+    /// be applied in bulk:
+    ///
+    /// - Email: cannot be changed once assigned and is unique per person.
+    /// - RoleId: triggers invite-permission, account-owner and last-global-admin logic.
+    /// - IsActive: triggers last-global-admin and license-count logic.
+    /// - HourlyRate: triggers workspace-wide hourly rate recalculations.
+    /// - ClearAvatar: removes the stored avatar image and deletes the asset from S3.
     /// </summary>
-    public class ResourceCreateDto : ApiModel
+    public class ResourceBulkUpdateDto : ApiModel
     {
+
+        /// <summary>
+        /// The unique identifier of the Resource to update.
+        /// </summary>
+        public Guid? ResourceId { get; set; }
 
         /// <summary>
         /// The first name of the person Resource.
@@ -43,16 +55,6 @@ namespace ProjectManager.SDK.Models
         /// Applies to personnel Resources only.
         /// </summary>
         public string LastName { get; set; }
-
-        /// <summary>
-        /// The email address of this Resource.
-        /// </summary>
-        public string Email { get; set; }
-
-        /// <summary>
-        /// The basic hourly rate for this Resource.
-        /// </summary>
-        public decimal? HourlyRate { get; set; }
 
         /// <summary>
         /// The phone number associated with this Resource.
@@ -83,13 +85,6 @@ namespace ProjectManager.SDK.Models
         public string Notes { get; set; }
 
         /// <summary>
-        /// The Role Id associated with this Resource.
-        ///
-        /// Applies to personnel Resources only.
-        /// </summary>
-        public Guid? RoleId { get; set; }
-
-        /// <summary>
         /// The list of ResourceTeams to which this Resource belongs.
         /// </summary>
         public Guid[] TeamIds { get; set; }
@@ -100,6 +95,13 @@ namespace ProjectManager.SDK.Models
         public Guid[] SkillIds { get; set; }
 
         /// <summary>
+        /// The Approver Id associated with this Resource.
+        ///
+        /// Applies to personnel Resources only.
+        /// </summary>
+        public Guid? ApproverId { get; set; }
+
+        /// <summary>
         /// Collaboration Color for this resource.
         ///
         /// eg. teal, cyan, lightblue, blurple, purple, pink, orange, gray
@@ -107,7 +109,9 @@ namespace ProjectManager.SDK.Models
         public string ColorName { get; set; }
 
         /// <summary>
-        /// Language code for this Resource.
+        /// Translation Language for this resource.
+        ///
+        /// e.g. en-US, en-GB, fr-FR, es-ES
         /// </summary>
         public string Language { get; set; }
 
@@ -118,13 +122,12 @@ namespace ProjectManager.SDK.Models
         public int? PublicAvatarId { get; set; }
 
         /// <summary>
-        /// Default planned effort in hours for this resource. If omitted, the workspace default (or 8 hours) is applied.
+        /// Default planned effort in hours. When set, updates the resource; when omitted, existing value is unchanged.
         /// </summary>
         public decimal? DefaultPlannedHours { get; set; }
 
         /// <summary>
-        /// Per-day working hours (Monday … Sunday). When omitted, no resource-specific calendar is created and the
-        /// workspace calendar applies. Set only the days you need; they merge over the workspace defaults.
+        /// Per-day working hours. When non-null, updates or creates the resource calendar; set only days to change—they merge over workspace defaults.
         /// </summary>
         public ResourceWorkingDaysHours WorkingDays { get; set; }
     }

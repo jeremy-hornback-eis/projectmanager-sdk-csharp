@@ -21,15 +21,24 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// Represents a request to update the approval status of a Task.
+    /// Reported (timesheet) time for one resource on the task.
     /// </summary>
-    public class TaskApprovalStatusUpdateDto : ApiModel
+    public class TaskActualResourceTimeDto : ApiModel
     {
 
         /// <summary>
-        /// The approval status to apply to the Task.
-        /// Must be one of: approved, denied, or pending.
+        /// Resource identifier for this actual row.
         /// </summary>
-        public string Status { get; set; }
+        public Guid? Id { get; set; }
+
+        /// <summary>
+        /// Total reported minutes for this resource (sum of TimeEntries).
+        /// </summary>
+        public int? TotalMinutes { get; set; }
+
+        /// <summary>
+        /// Individual timesheet entries contributing to totalMinutes.
+        /// </summary>
+        public TaskActualTimeEntryDto[] TimeEntries { get; set; }
     }
 }
