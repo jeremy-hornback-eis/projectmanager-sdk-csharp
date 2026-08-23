@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  ProjectManager.com, Inc.
- * @version    154.0.181
+ * @version    2026.161.149
  * @link       https://github.com/projectmgr/projectmanager-sdk-csharp
  */
 
@@ -39,7 +39,7 @@ namespace ProjectManager.SDK
         /// <summary>
         /// The version of the SDK
         /// </summary>
-        public const string SdkVersion = "154.0.181";
+        public const string SdkVersion = "2026.161.149";
         
         private readonly string _apiUrl;
         private readonly HttpClient _client;
@@ -60,11 +60,6 @@ namespace ProjectManager.SDK
         public IChangesetClient Changeset { get; }
 
         /// <summary>
-        /// API methods related to Dashboard
-        /// </summary>
-        public IDashboardClient Dashboard { get; }
-
-        /// <summary>
         /// API methods related to Discussion
         /// </summary>
         public IDiscussionClient Discussion { get; }
@@ -73,11 +68,6 @@ namespace ProjectManager.SDK
         /// API methods related to File
         /// </summary>
         public IFileClient File { get; }
-
-        /// <summary>
-        /// API methods related to Holiday
-        /// </summary>
-        public IHolidayClient Holiday { get; }
 
         /// <summary>
         /// API methods related to HomeFile
@@ -118,6 +108,11 @@ namespace ProjectManager.SDK
         /// API methods related to Me
         /// </summary>
         public IMeClient Me { get; }
+
+        /// <summary>
+        /// API methods related to MeetingRecurrency
+        /// </summary>
+        public IMeetingRecurrencyClient MeetingRecurrency { get; }
 
         /// <summary>
         /// API methods related to Meetings
@@ -362,10 +357,8 @@ namespace ProjectManager.SDK
             _apiUrl = baseEndpoint.ToString();
             ApiKey = new ApiKeyClient(this);
             Changeset = new ChangesetClient(this);
-            Dashboard = new DashboardClient(this);
             Discussion = new DiscussionClient(this);
             File = new FileClient(this);
-            Holiday = new HolidayClient(this);
             HomeFile = new HomeFileClient(this);
             HourlyRate = new HourlyRateClient(this);
             HourlyRatePeriod = new HourlyRatePeriodClient(this);
@@ -374,6 +367,7 @@ namespace ProjectManager.SDK
             IntegrationProvider = new IntegrationProviderClient(this);
             License = new LicenseClient(this);
             Me = new MeClient(this);
+            MeetingRecurrency = new MeetingRecurrencyClient(this);
             Meetings = new MeetingsClient(this);
             MeetingTag = new MeetingTagClient(this);
             MeetingTodos = new MeetingTodosClient(this);
