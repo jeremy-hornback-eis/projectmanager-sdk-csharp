@@ -10,45 +10,80 @@
         <PackageTags>projectmanager project management task tracking projects tasks</PackageTags>
         <Copyright>Copyright 2023 - 2026</Copyright>
         <PackageReleaseNotes>
-## Patch notes for 154.0.181
+## Patch notes for 2026.162.255
 
-These patch notes summarize the changes from version 153.2.193.
+These patch notes summarize the changes from version 154.0.181.
 
-Added 11 new endpoints:
-* Meetings.GetMeetings
-* Npt.GetNpts
-* NptStatus.CreateNptTaskStatus
-* NptStatus.UpdateNptTaskStatus
-* NptStatus.DeleteNptTaskStatus
-* Risk.CreateProjectRisk
-* Security.ListBusinessRoles
-* Security.CreateBusinessRole
-* Security.UpdateBusinessRole
-* Security.DeleteBusinessRole
-* Security.ResendEmailValidation
+Added 7 new endpoints:
+* Project.CreateProjectExport
+* Resource.BulkUpdateResources
+* ResourceTeam.GetResourceTeam
+* Risk.CreateRisk
+* Task.MarkTaskAsReadForTheCurrentUser
+* TaskStatus.MoveTasksToATaskStatus
+* WorkSpace.UpdateCurrentWorkspaceSettings
 
-Changes to existing endpoints:
-* ResourceSkill.UpdateResourceSkill added path parameter `resourceSkillId`
-* ResourceSkill.UpdateResourceSkill removed path parameter `skillId`
-* ResourceTeam.UpdateResourceTeam added path parameter `resourceTeamId`
-* ResourceTeam.UpdateResourceTeam removed path parameter `teamresourceId`
-* TaskStatus.UpdateTaskStatus added path parameter `taskStatusId`
-* TaskStatus.UpdateTaskStatus removed path parameter `projectId`
-* TaskStatus.DeleteTaskStatus removed path parameter `projectId`
+Renamed 10 endpoints:
+* Renamed Meetings.CreateWeeklyRecurringMeetings to MeetingRecurrency.CreateWeeklyRecurringMeetings
+* Renamed Meetings.CreateMonthlyRecurringMeetings to MeetingRecurrency.CreateMonthlyRecurringMeetings
+* Renamed Meetings.CreateDailyRecurringMeetings to MeetingRecurrency.CreateDailyRecurringMeetings
+* Renamed Meetings.CreateYearlyRecurringMeetings to MeetingRecurrency.CreateYearlyRecurringMeetings
+* Renamed Meetings.DeleteRecurringMeetings to MeetingRecurrency.DeleteRecurringMeetings
+* Renamed Meetings.ValidateRecurringMeetingSettings to MeetingRecurrency.ValidateRecurringMeetingSettings
+* Renamed Meetings.UpdateRecurringMeetingSettings to MeetingRecurrency.UpdateRecurringMeetingSettings
+* Renamed ProjectMembers.UpdateUserProjectMembership to ProjectMembers.CreateOrUpdateUserProjectMembership
+* Renamed ResourceTeam.RetrieveResourceTeams to ResourceTeam.QueryResourceTeams
+* Renamed WorkSpace.RetrieveWorkspaces to WorkSpace.RetrieveCurrentWorkspace
 
 Changes to data models:
-* TaskDetailsDto: Changed the data type of the field `fieldValues` from `TaskFieldValueDto` to `SimpleTaskFieldValueDto`
-* TaskDto: Changed the data type of the field `fieldValues` from `TaskFieldValueDto` to `SimpleTaskFieldValueDto`
-* TaskStatusUpdateDto: Removed field `id`
+* IntegrationProviderDto: Added new field `unauthorized`
+* MeetingUpdateDto: Added new field `breakRecurrency`
+* MeetingUpdateDto: Added new field `moveToProject`
+* NptUpdateDto: Added new field `breakRecurrency`
+* NptUpdateDto: Added new field `moveToProject`
+* RecurringTaskChangeSetDetails: Added new field `recurrences`
+* ResourceCreateDto: Added new field `defaultPlannedHours`
+* ResourceCreateDto: Added new field `workingDays`
+* ResourceDto: Added new field `roleId`
+* ResourceDto: Added new field `defaultPlannedHours`
+* ResourceDto: Added new field `workingDays`
+* ResourceUpdateDto: Added new field `defaultPlannedHours`
+* ResourceUpdateDto: Added new field `workingDays`
+* RiskUpdateDto: Added new field `moveToProject`
+* TaskDetailsDto: Added new field `baseline`
+* TaskFileDto: Added new field `size`
+* TaskOwnerDto: Added new field `name`
+* TaskOwnerDto: Added new field `shortName`
+* TaskUpdateDto: Added new field `breakRecurrency`
+* TaskUpdateDto: Added new field `moveToProject`
+* UserRolePermissionsDto: Added new field `useMcp`
+* WorkSpaceDto: Added new field `accountOwnerId`
+* WorkSpaceDto: Added new field `status`
+* WorkSpaceDto: Added new field `isActive`
+* WorkSpaceDto: Added new field `isReseller`
+* WorkSpaceDto: Added new field `licenses`
+* WorkSpaceDto: Added new field `settings`
+* WorkSpacePermissionsDto: Added new field `changeOwnEmail`
+* WorkSpacePermissionsDto: Added new field `useMcp`
+* WorkSpaceUserInfoDto: Added new field `workSpacePricingType`
+* WorkSpaceUserInfoDto: Added new field `workSpaceHasScheduledChanges`
+* WorkSpaceUserInfoDto: Added new field `workspaceCurrencySymbol`
+* WorkSpaceUserInfoDto: Added new field `workspaceCurrency`
+* WorkSpaceUserInfoDto: Added new field `entitlements`
+* WorkSpaceUserInfoDto: Added new field `isSocial`
 
-Deprecated 1 old endpoints:
-* Risk.CreateRisk
+Deprecated 5 old endpoints:
+* Holiday.QueryResourceHolidays
+* Holiday.QueryCountryHolidays
+* Holiday.QueryGlobalHolidays
+* ProjectMembers.UpdateAListOfUserProjectMembership
+* ProjectMembers.CreateUserProjectMembership
 
 
         </PackageReleaseNotes>
         <PackageIcon>docs/logo.png</PackageIcon>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<version>154.0.181</version>
+		<version>2026.162.255</version>
         <Authors>ProjectManager.com</Authors>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>
