@@ -35,5 +35,10 @@ namespace ProjectManager.SDK.Models
         /// The ChangeSet Id
         /// </summary>
         public Guid? ChangeSetId { get; set; }
+
+        /// <summary>
+        /// The recurrence instances created by this action
+        /// </summary>
+        public RecurrenceDto[] Recurrences { get; set; }
     }
 }
