@@ -21,29 +21,24 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// The Dashboards API is intended for use by ProjectManager
+    /// A lightweight reference that pairs a unique identifier with a display name.
+    ///
+    /// To determine what the identifier and name represent, see the field to which this
+    /// value is attached in the parent object.
     /// </summary>
-    public class DashboardSettingDto : ApiModel
+    public class IdNameDto : ApiModel
     {
 
         /// <summary>
-        /// Unique ID
+        /// A unique identifier.  To determine the meaning of this unique identifier,
+        /// see the field to which this value is attached.
         /// </summary>
         public Guid? Id { get; set; }
 
         /// <summary>
-        /// User ID
+        /// A name.  To determine the meaning of this name, see the field to which this
+        /// value is attached in the parent object.
         /// </summary>
-        public Guid? UserId { get; set; }
-
-        /// <summary>
-        /// Either custom or one of DashboardType enum
-        /// </summary>
-        public string Type { get; set; }
-
-        /// <summary>
-        /// React grid layout configuration
-        /// </summary>
-        public ReactGridLayoutDto ReactGridLayout { get; set; }
+        public string Name { get; set; }
     }
 }
