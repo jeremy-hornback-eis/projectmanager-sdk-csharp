@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  ProjectManager.com, Inc.
- * @version    154.0.181
+ * @version    2026.163.309
  * @link       https://github.com/projectmgr/projectmanager-sdk-csharp
  */
 
@@ -32,10 +32,6 @@ namespace ProjectManager.SDK
         /// </summary>
         IChangesetClient Changeset { get; }
         /// <summary>
-        /// API methods related to Dashboard
-        /// </summary>
-        IDashboardClient Dashboard { get; }
-        /// <summary>
         /// API methods related to Discussion
         /// </summary>
         IDiscussionClient Discussion { get; }
@@ -43,10 +39,6 @@ namespace ProjectManager.SDK
         /// API methods related to File
         /// </summary>
         IFileClient File { get; }
-        /// <summary>
-        /// API methods related to Holiday
-        /// </summary>
-        IHolidayClient Holiday { get; }
         /// <summary>
         /// API methods related to HomeFile
         /// </summary>
@@ -79,6 +71,10 @@ namespace ProjectManager.SDK
         /// API methods related to Me
         /// </summary>
         IMeClient Me { get; }
+        /// <summary>
+        /// API methods related to MeetingRecurrency
+        /// </summary>
+        IMeetingRecurrencyClient MeetingRecurrency { get; }
         /// <summary>
         /// API methods related to Meetings
         /// </summary>
@@ -216,6 +212,10 @@ namespace ProjectManager.SDK
         /// </summary>
         ITaskFileClient TaskFile { get; }
         /// <summary>
+        /// API methods related to TaskLink
+        /// </summary>
+        ITaskLinkClient TaskLink { get; }
+        /// <summary>
         /// API methods related to TaskMetadata
         /// </summary>
         ITaskMetadataClient TaskMetadata { get; }
@@ -247,6 +247,10 @@ namespace ProjectManager.SDK
         /// API methods related to UserRole
         /// </summary>
         IUserRoleClient UserRole { get; }
+        /// <summary>
+        /// API methods related to Workload
+        /// </summary>
+        IWorkloadClient Workload { get; }
         /// <summary>
         /// API methods related to WorkSpace
         /// </summary>
