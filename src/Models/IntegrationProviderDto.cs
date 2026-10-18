@@ -68,9 +68,18 @@ namespace ProjectManager.SDK.Models
         public bool? Activated { get; set; }
 
         /// <summary>
-        /// True if this Provider requires authentication.
+        /// True if the current user has an active personal connection to this Provider. This is a
+        /// user-level flag - each user connects their own account independently.
         /// </summary>
         public bool? Authenticated { get; set; }
+
+        /// <summary>
+        /// True if this Provider is activated but the workspace-level connection has lost authorization
+        /// (e.g. the OAuth refresh token has expired or been revoked). This is a workspace-level flag
+        /// - it affects all users. Re-authentication by a workspace administrator is required before
+        /// jobs can run again.
+        /// </summary>
+        public bool? Unauthorized { get; set; }
 
         /// <summary>
         /// The list of available Integrations for this Provider.
@@ -86,5 +95,17 @@ namespace ProjectManager.SDK.Models
         /// Flag whether user/workspace needs to be setup in Workato
         /// </summary>
         public bool? CreateInWorkato { get; set; }
+
+        /// <summary>
+        /// For Acumatica/MYOB: which cost types Receive Costs includes (Planned, Committed, Actual).
+        /// Null for other providers. Used so the UI can unlock Planned Cost when it is not synced.
+        /// </summary>
+        public string[] IncludeCosts { get; set; }
+
+        /// <summary>
+        /// For Acumatica/MYOB: whether Sync Time Entries sends time (Send) or receives it (Receive).
+        /// Null for other providers. Used so the UI can make time read-only when it is received.
+        /// </summary>
+        public string TimeSyncDirection { get; set; }
     }
 }
