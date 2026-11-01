@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  ProjectManager.com, Inc.
- * @version    154.0.181
+ * @version    2026.164.251
  * @link       https://github.com/projectmgr/projectmanager-sdk-csharp
  */
 
@@ -32,9 +32,9 @@ namespace ProjectManager.SDK
         /// </summary>
         IChangesetClient Changeset { get; }
         /// <summary>
-        /// API methods related to Dashboard
+        /// API methods related to Country
         /// </summary>
-        IDashboardClient Dashboard { get; }
+        ICountryClient Country { get; }
         /// <summary>
         /// API methods related to Discussion
         /// </summary>
@@ -44,9 +44,9 @@ namespace ProjectManager.SDK
         /// </summary>
         IFileClient File { get; }
         /// <summary>
-        /// API methods related to Holiday
+        /// API methods related to Holidays
         /// </summary>
-        IHolidayClient Holiday { get; }
+        IHolidaysClient Holidays { get; }
         /// <summary>
         /// API methods related to HomeFile
         /// </summary>
@@ -79,6 +79,10 @@ namespace ProjectManager.SDK
         /// API methods related to Me
         /// </summary>
         IMeClient Me { get; }
+        /// <summary>
+        /// API methods related to MeetingRecurrency
+        /// </summary>
+        IMeetingRecurrencyClient MeetingRecurrency { get; }
         /// <summary>
         /// API methods related to Meetings
         /// </summary>
@@ -216,6 +220,10 @@ namespace ProjectManager.SDK
         /// </summary>
         ITaskFileClient TaskFile { get; }
         /// <summary>
+        /// API methods related to TaskLink
+        /// </summary>
+        ITaskLinkClient TaskLink { get; }
+        /// <summary>
         /// API methods related to TaskMetadata
         /// </summary>
         ITaskMetadataClient TaskMetadata { get; }
@@ -247,6 +255,10 @@ namespace ProjectManager.SDK
         /// API methods related to UserRole
         /// </summary>
         IUserRoleClient UserRole { get; }
+        /// <summary>
+        /// API methods related to Workload
+        /// </summary>
+        IWorkloadClient Workload { get; }
         /// <summary>
         /// API methods related to WorkSpace
         /// </summary>
