@@ -137,6 +137,13 @@ namespace ProjectManager.SDK.Models
         public string Role { get; set; }
 
         /// <summary>
+        /// The unique identifier of the Role associated with this Resource.
+        ///
+        /// Applies to personnel Resources only.
+        /// </summary>
+        public Guid? RoleId { get; set; }
+
+        /// <summary>
         /// True if this Resource is currently active and valid.  If this value is false,
         /// this Resource is considered to be deactivated and not available for further use.
         ///
@@ -192,5 +199,15 @@ namespace ProjectManager.SDK.Models
         /// 1 = Resource (standard resource), 2 = Sample (sample resource).
         /// </summary>
         public int? ResourceTypeId { get; set; }
+
+        /// <summary>
+        /// Default planned effort for this resource, in hours (stored as whole minutes server-side).
+        /// </summary>
+        public decimal? DefaultPlannedHours { get; set; }
+
+        /// <summary>
+        /// Hours available per weekday for scheduling (whole hours per day; matches workspace/resource calendar rows).
+        /// </summary>
+        public ResourceWorkingDaysHours WorkingDays { get; set; }
     }
 }
