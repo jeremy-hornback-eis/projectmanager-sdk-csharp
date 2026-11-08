@@ -21,44 +21,45 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// React grid layout item object
+    /// Working hours per weekday (0 = non-working day).
+    /// On update, omit a property (or send null) to leave that day unchanged.
     /// </summary>
-    public class ReactGridLayoutItemDto : ApiModel
+    public class WorkspaceWorkingDaysDto : ApiModel
     {
 
         /// <summary>
-        /// Width
+        /// Working hours on Monday.
         /// </summary>
-        public int? W { get; set; }
+        public decimal? Monday { get; set; }
 
         /// <summary>
-        /// Height
+        /// Working hours on Tuesday.
         /// </summary>
-        public int? H { get; set; }
+        public decimal? Tuesday { get; set; }
 
         /// <summary>
-        /// X position
+        /// Working hours on Wednesday.
         /// </summary>
-        public int? X { get; set; }
+        public decimal? Wednesday { get; set; }
 
         /// <summary>
-        /// Y position
+        /// Working hours on Thursday.
         /// </summary>
-        public int? Y { get; set; }
+        public decimal? Thursday { get; set; }
 
         /// <summary>
-        /// ID
+        /// Working hours on Friday.
         /// </summary>
-        public string I { get; set; }
+        public decimal? Friday { get; set; }
 
         /// <summary>
-        /// Moved indicator
+        /// Working hours on Saturday.
         /// </summary>
-        public bool? Moved { get; set; }
+        public decimal? Saturday { get; set; }
 
         /// <summary>
-        /// If true, equal to `isDraggable: false, isResizable: false`
+        /// Working hours on Sunday.
         /// </summary>
-        public bool? Static { get; set; }
+        public decimal? Sunday { get; set; }
     }
 }

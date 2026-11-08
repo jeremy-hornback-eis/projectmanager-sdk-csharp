@@ -21,34 +21,34 @@ namespace ProjectManager.SDK.Models
 {
 
     /// <summary>
-    /// A setting for react grid layout sizes
+    /// Export settings for Projects export
     /// </summary>
-    public class ReactGridLayoutDto : ApiModel
+    public class ProjectExportSettingsDto : ApiModel
     {
 
         /// <summary>
-        /// Used for large screen size (1200)
+        /// Format to export to, currently csv and excel are supported
         /// </summary>
-        public ReactGridLayoutItemDto[] Lg { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
-        /// Used for medium screen size (996)
+        /// Include closed projects to export
         /// </summary>
-        public ReactGridLayoutItemDto[] Md { get; set; }
+        public bool? IncludeClosed { get; set; }
 
         /// <summary>
-        /// Used for small screen size (768)
+        /// The list of column names to export
         /// </summary>
-        public ReactGridLayoutItemDto[] Sm { get; set; }
+        public object Columns { get; set; }
 
         /// <summary>
-        /// Used for extra small screen size (480)
+        /// Export filters
         /// </summary>
-        public ReactGridLayoutItemDto[] Xs { get; set; }
+        public ProjectExportFilterDto Filters { get; set; }
 
         /// <summary>
-        /// Used for super small screen size (0)
+        /// Order of columns to export
         /// </summary>
-        public ReactGridLayoutItemDto[] Xxs { get; set; }
+        public string[] Order { get; set; }
     }
 }
