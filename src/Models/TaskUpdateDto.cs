@@ -103,7 +103,7 @@ namespace ProjectManager.SDK.Models
         public int? PlannedEffort { get; set; }
 
         /// <summary>
-        /// The planned cost for this Task.  Cannot be negative.
+        /// The planned cost for this Task.  Cannot be negative or more than 90,000,000,000,000.
         /// </summary>
         public decimal? PlannedCost { get; set; }
 
@@ -147,7 +147,8 @@ namespace ProjectManager.SDK.Models
         public int? ActualDuration { get; set; }
 
         /// <summary>
-        /// If set, this represents the actual tracked cost for this Task.
+        /// If set, this represents the actual tracked cost for this Task.  Cannot be negative or more than
+        /// 90,000,000,000,000.
         /// </summary>
         public decimal? ActualCost { get; set; }
 
@@ -174,5 +175,22 @@ namespace ProjectManager.SDK.Models
         /// milestone is locked, it represents a fixed time within the project that can be used to relate to other tasks.
         /// </summary>
         public bool? IsMilestone { get; set; }
+
+        /// <summary>
+        /// Set this to true to break this Task out of its recurring series as part of this update.
+        ///
+        /// The Task is detached from its series, clearing its parent/child relationship and its
+        /// recurrence settings.  Any other changes in the same update are then applied to this
+        /// Task alone rather than being propagated across the rest of the series.
+        ///
+        /// This has no effect if the Task is not part of a recurring series.  A Task can only be
+        /// made recurring through the TaskRecurrency endpoints.
+        /// </summary>
+        public bool? BreakRecurrency { get; set; }
+
+        /// <summary>
+        /// Object contains data to move task to another project
+        /// </summary>
+        public MoveTaskToProjectDto MoveToProject { get; set; }
     }
 }

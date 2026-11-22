@@ -13,17 +13,11 @@
 
 
 
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+
 namespace ProjectManager.SDK
 {
-
-    /// <summary>
-    /// To prevent enum parsing errors, all enums are rendered as constants.
-    /// </summary>
-    public static class DashboardTypeValues
-    {
-        public const string MySummary = "MySummary";
-        public const string PortfolioSummary = "PortfolioSummary";
-    }
 
     /// <summary>
     /// To prevent enum parsing errors, all enums are rendered as constants.
